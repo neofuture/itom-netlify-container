@@ -24,12 +24,6 @@ export class ResetPasswordComponent implements OnInit {
     if (this.route.snapshot.paramMap.get('code') !== null) {
       this.code = this.route.snapshot.paramMap.get('code') || '';
     }
-
-    this.user = {
-      email: 'carlfearby@me.com',
-      password: 'Testing666!',
-      c_password: 'Testing666!'
-    }
   }
 
 

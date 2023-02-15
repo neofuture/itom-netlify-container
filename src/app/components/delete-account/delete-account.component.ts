@@ -10,7 +10,7 @@ import {environment} from "../../../environments/environment";
 export class DeleteAccountComponent implements OnInit{
   status: any;
   user = {
-    email: 'carlfearby@me.com'
+    email: ''
   }
   constructor(
     private apiService: ApiService) {
