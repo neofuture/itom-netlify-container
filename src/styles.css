@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow:hidden;
+}
+
+:root {
+  --nav-colour: #444444;
+  --nav-width: 252px;
+  --nav-border: #46c546;
+  --blue-primary: #2c69b1;
+  --green-primary: #7fb346;
+  --red-primary: #ea5b5b;
+  --green-gradient-start: #87b94e;
+  --green-gradient-end: #b5e181;
+  --green-background: #f7fbf8;
+  --white: #ffffff;
+  --black: #444444;
+}
+
+.ui {
+  height: 100%;
+  display: flex;
+}
+
+.ui > div:first-child {
+  width: var(--nav-width);
+  padding: 16px;
+  background-color: #e7e7e7;
+  border-right: 3px solid var(--nav-border);
+}
+
+.ui > div:last-child {
+  width: calc(100% - var(--nav-width));
+  padding: 16px;
+}
+
+.ui > div:last-child > h1 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 60px;
+  margin: 0 0 18px 0;
+  padding: 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.p-password {
+  width: 100%;
+}
+
+
+a {
+  text-decoration: none;
+  color: var(--blue-primary);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--green-primary);
+}
+
+h1 {
+  margin: 0;
+  padding: 6px 0 6px 0;
+  font-weight: 100;
+}

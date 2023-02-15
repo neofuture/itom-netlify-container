@@ -1,0 +1,106 @@
+<div class="form-container">
+  <div class="form-result"
+       [class.open]="showMessage"
+       [class.closed]="!showMessage"
+       [class.success]="formStatus"
+       [class.error]="!formStatus"
+  >
+    <h4>{{ formMessage }}</h4>
+    <hr *ngIf="formMessageDetails.length > 0">
+    <div *ngIf="formMessageDetails.length > 0" class="extraDetails">
+      <div *ngFor="let item of formMessageDetails">{{ item }}</div>
+    </div>
+
+  </div>
+  <h3>{{ payload.first_name + heading}}</h3>
+  <div class="form--body-copy" *ngIf="body" [innerHTML]="body"></div>
+  <form [formGroup]="mobileForm" (ngSubmit)="onSubmitMobile()">
+
+    <div class="form--group side" *ngIf="payload.phone_verified_at == null">
+      <div>
+        <label>Mobile phone</label>
+        <input
+          pInputText
+          type="tel"
+          formControlName="phone"
+          class="form-control"
+          placeholder="Enter your mobile"
+          [ngClass]="{ 'is-invalid': mf['phone'].dirty && mf['phone'].errors }"/>
+        <div *ngIf="payload.phone_verified_at == null && !mf['phone'].errors" class="invalid-feedback">
+          <div>Mobile phone is not verified &#10006;</div>
+        </div>
+        <div *ngIf="mf['phone'].dirty && mf['phone'].errors" class="invalid-feedback">
+          <div *ngIf="mf['phone'].errors['required'] && !mf['phone'].errors['startsWith07']">
+            Mobile is required
+          </div>
+          <div *ngIf="mf['phone'].errors['minlength'] && !mf['phone'].errors['startsWith07']">
+            Mobile must be 11 numbers &#10006;
+          </div>
+          <div *ngIf="mf['phone'].errors['maxlength'] && !mf['phone'].errors['startsWith07']">
+            Mobile must not exceed 11 numbers &#10006;
+          </div>
+          <div
+            *ngIf="(!mf['phone'].errors['minlength'] || !mf['phone'].errors['maxlength']) && mf['phone'].errors['startsWith07']">
+            Mobile number must start with 07 &#10006;
+          </div>
+        </div>
+        <div *ngIf="!mf['phone'].errors && payload.phone_verified_at" class="valid-feedback">OK &#10004;</div>
+      </div>
+      <div>
+        <button
+          pButton
+          type="button"
+          class="register-button"
+          (click)="onSubmitMobile()"
+          [disabled]="mobileForm.invalid || mobileLoading">
+          <app-loading [colour]="'#ffffff'" *ngIf="mobileLoading; else veryfyEmail"></app-loading>
+        </button>
+      </div>
+    </div>
+  </form>
+  <form [formGroup]="emailForm" (ngSubmit)="onSubmitEmail()">
+    <div class="form--group side" *ngIf="payload.email_verified_at == null">
+      <div>
+        <label>Email address</label>
+        <input
+          pInputText
+          type="text"
+          formControlName="email"
+          class="form-control"
+          placeholder="Enter your email address"
+          [ngClass]="{ 'is-invalid': ef['email'].dirty && ef['email'].errors }"/>
+        <div *ngIf="payload.email_verified_at == null && !ef['email'].errors" class="invalid-feedback">
+          <div>Email address is not verified &#10006;</div>
+        </div>
+        <div *ngIf="ef['email'].dirty && ef['email'].errors" class="invalid-feedback">
+          <div *ngIf="ef['email'].errors['required']">Email is required &#10006;</div>
+          <div *ngIf="ef['email'].errors['email']">Email is invalid &#10006;</div>
+        </div>
+        <div *ngIf="!ef['email'].errors && payload.email_verified_at" class="valid-feedback">OK &#10004;</div>
+      </div>
+      <div>
+        <button
+          pButton
+          type="button"
+          class="register-button"
+          (click)="onSubmitEmail()"
+          [disabled]="emailForm.invalid || emailLoading">
+          <app-loading [colour]="'#ffffff'" *ngIf="emailLoading; else veryfyEmail"></app-loading>
+        </button>
+      </div>
+    </div>
+
+    <!--    <div class="form&#45;&#45;buttons">-->
+    <!--      <button-->
+    <!--        pButton-->
+    <!--        type="submit"-->
+    <!--        class="register-button"-->
+    <!--        [disabled]="form.invalid || loading">-->
+    <!--        <app-loading [colour]="'#ffffff'" *ngIf="loading; else confirm"></app-loading>-->
+    <!--      </button>-->
+    <!--    </div>-->
+  </form>
+</div>
+
+<ng-template #verifyMobile>Verify</ng-template>
+<ng-template #veryfyEmail>Verify</ng-template>

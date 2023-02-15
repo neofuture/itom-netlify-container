@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import {UserService} from "./services/user/user.service";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['../demo-styling.css']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-quickstart';
+  title = 'itom-frontend';
+
+  constructor(
+    private userService: UserService,
+  ) {
+    this.userService.initUsers();
+  }
+
 }

@@ -1,0 +1,19 @@
+<div class="container">
+
+  <app-update-user-form *ngIf="user && user.status == 'unverified'"
+                        [payload]="user"
+                        heading=", please complete your registration"
+                        body="Before you can login you need to complete and confirm your registration details below. Please confirm the details are correct and click the Verify button."
+  >
+  </app-update-user-form>
+
+  <div *ngIf="user.first_name && user.status == 'active'" class="message">
+    <h1>{{ user.first_name }}'s Dashboard</h1>
+    <div>User is activated</div>
+  </div>
+
+  <div class='form-container' *ngIf="loaded && !user.first_name">
+    You are not logged in, please <a routerLink="/login">login</a> to continue
+  </div>
+  <app-loading *ngIf="!loaded" [colour]="'#ffffff'"></app-loading>
+</div>
