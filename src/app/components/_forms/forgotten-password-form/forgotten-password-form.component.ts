@@ -35,7 +35,7 @@ export class ForgottenPasswordFormComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.email?.nativeElement.focus();
     setTimeout(() => {
-      this.form.controls['email'].setValue('');
+      this.form.controls['email'].setValue('carlfearby@me.com');
     });
   }
 

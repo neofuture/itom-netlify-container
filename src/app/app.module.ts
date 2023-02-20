@@ -38,6 +38,7 @@ import {LoginOtpFormComponent} from './components/_forms/login-otp-form/login-ot
 import {LoginOtpComponent} from './components/login-otp/login-otp.component';
 import { UpdateUserFormComponent } from './components/_forms/update-user-form/update-user-form.component';
 import { ResetPasswordFormComponent } from './components/_forms/reset-password-form/reset-password-form.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ResetPasswordFormComponent } from './components/_forms/reset-password-f
     LoginOtpFormComponent,
     UpdateUserFormComponent,
     ResetPasswordFormComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

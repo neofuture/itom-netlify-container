@@ -11,7 +11,7 @@ import {UserService} from "../../services/user/user.service";
 export class DashboardComponent implements OnInit {
 
   token: any;
-  user: any;
+  user: any = {status: 'unverified'};
   message: string = '';
   loaded = false;
 
@@ -28,8 +28,11 @@ export class DashboardComponent implements OnInit {
           this.loaded = true;
         }
     });
+
     setTimeout(() => {
       this.loaded = true;
     }, 300);
   }
+
+
 }

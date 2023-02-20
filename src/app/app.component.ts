@@ -9,6 +9,7 @@ import {RouterOutlet} from "@angular/router";
 })
 export class AppComponent {
   title = 'itom-frontend';
+  isSidebarOpen: boolean = localStorage.getItem('sidebar') === 'false' ? false : true
 
   constructor(
     private userService: UserService,
@@ -16,4 +17,12 @@ export class AppComponent {
     this.userService.initUsers();
   }
 
+  toggleSidebar() {
+    if(this.isSidebarOpen) {
+      this.isSidebarOpen = false;
+    } else {
+      this.isSidebarOpen = true;
+    }
+    localStorage.setItem('sidebar', this.isSidebarOpen.toString());
+  }
 }

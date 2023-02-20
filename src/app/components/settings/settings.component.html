@@ -1,3 +1,32 @@
 <div class="container">
-  Settings
+  <div *ngIf="user.status == 'active'; else loading" class="message">
+    <h1>Settings</h1>
+    <div>User is activated</div>
+
+    <ul>
+      <li><a routerLink="/login/otp" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>Login OTP</a></li>
+      <li><a routerLink="/login/otp/sms" routerLinkActive="active">Login OTP Mobile</a></li>
+      <li><a routerLink="/login/otp/email" routerLinkActive="active">Login OTP Email</a></li>
+    </ul>
+    <ul>
+      <li><a routerLink="/confirm-account/sms" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>Confirm
+        Account SMS</a></li>
+      <li><a routerLink="/confirm-account/sms/acb123" routerLinkActive="active">Confirm Account SMS (abc123)</a></li>
+      <li><a routerLink="/confirm-account/email" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>Confirm
+        Account Email</a></li>
+      <li><a routerLink="/confirm-account/email/acb123" routerLinkActive="active">Confirm Account Email (abc123)</a>
+      </li>
+    </ul>
+    <ul>
+      <li><a routerLink="/reset-password/1234567890123456789012345/carlfearby@me.com"
+             routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>Reset
+        Password Link</a></li>
+    </ul>
+    <ul>
+      <li *ngIf="user.status === 'active'"><a routerLink="/delete-account" routerLinkActive="active">Delete User</a></li>
+    </ul>
+  </div>
 </div>
+<ng-template #loading>
+  <app-loading [colour]="'#ffffff'"></app-loading>
+</ng-template>

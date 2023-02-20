@@ -1,13 +1,12 @@
 <div class="container">
-
-  <app-update-user-form *ngIf="user && user.status == 'unverified'"
+  <app-update-user-form *ngIf="user.status == 'unverified'"
                         [payload]="user"
                         heading=", please complete your registration"
                         body="Before you can login you need to complete and confirm your registration details below. Please confirm the details are correct and click the Verify button."
   >
   </app-update-user-form>
 
-  <div *ngIf="user.first_name && user.status == 'active'" class="message">
+  <div *ngIf="user.status == 'active'" class="message">
     <h1>{{ user.first_name }}'s Dashboard</h1>
     <div>User is activated</div>
   </div>

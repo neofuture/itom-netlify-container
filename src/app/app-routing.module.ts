@@ -13,6 +13,8 @@ import {InventoryComponent} from "./components/inventory/inventory.component";
 import {DeleteAccountComponent} from "./components/delete-account/delete-account.component";
 import {ConfirmAccountComponent} from "./components/confirm-account/confirm-account.component";
 import {LoginOtpComponent} from "./components/login-otp/login-otp.component";
+import {AuthGuard} from "./guards/auth.guard";
+import {OrdersComponent} from "./components/orders/orders.component";
 
 
 const routes: Routes = [
@@ -38,6 +40,9 @@ const routes: Routes = [
     path: 'reset-password/:code', component: ResetPasswordComponent
   },
   {
+    path: 'reset-password/:code/:email', component: ResetPasswordComponent
+  },
+  {
     path: 'reset-password', component: ResetPasswordComponent
   },
   {
@@ -50,16 +55,19 @@ const routes: Routes = [
     path: 'confirm-account/:device/:code', component: ConfirmAccountComponent
   },
   {
-    path: 'settings', component: SettingsComponent
+    path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'channels', component: ChannelsComponent
+    path: 'channels', component: ChannelsComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'inventory', component: InventoryComponent
+    path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'delete-account', component: DeleteAccountComponent
+    path: 'orders', component: OrdersComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'delete-account', component: DeleteAccountComponent, canActivate: [AuthGuard]
   },
   {
     path: '**', component: ErrorComponent

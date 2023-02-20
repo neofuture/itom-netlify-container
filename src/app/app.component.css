@@ -1,7 +1,54 @@
-.container {
-  position:relative;
-  width:100%;
-  height:calc(100% - 60px);
-
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
+.navContainer {
+  padding: 8px;
+  transition: all 300ms;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  flex-grow: 3
+}
+
+
+.navContainer--open {
+  width: 260px;
+  min-width: 260px;
+  transition: all 300ms;
+  padding: 8px;
+}
+
+.navContainer--closed {
+  width: 50px;
+  min-width: 50px;
+  transition: all 300ms;
+  padding: 0;
+}
+
+.toggleSidebar {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: var(--green-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  transition: all 300ms;
+  color:white;
+}
+
+.toggleSidebar i {
+  font-size:16px;
+}

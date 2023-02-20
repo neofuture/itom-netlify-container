@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class LoginComponent {
 
   user = {
-    email: '',
-    password: ''
+    email: 'carlfearby@me.com',
+    password: 'Testing1234!'
   }
 }

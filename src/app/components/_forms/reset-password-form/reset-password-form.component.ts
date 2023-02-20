@@ -2,9 +2,7 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../../environments/environment";
 import {ApiService} from "../../../services/api/api.service";
-import {UserService} from "../../../services/user/user.service";
 import Validation from './utils/validation';
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-reset-password-form',
@@ -30,6 +28,7 @@ export class ResetPasswordFormComponent implements OnInit, AfterViewInit {
   @Input() payload: any = {};
   @Input() code: string = '';
   @ViewChild('email', {static: true}) email?: ElementRef;
+  @ViewChild('password', {static: true}) password?: ElementRef;
 
   formMessageDetails: any = [];
 
@@ -40,10 +39,13 @@ export class ResetPasswordFormComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.email?.nativeElement.focus();
     setTimeout(() => {
       for (let item in this.payload) {
         this.form.controls[item].setValue(this.payload[item]);
+      }
+
+      if(this.payload['email'].length < 1) {
+        this.email?.nativeElement.focus();
       }
     })
   }

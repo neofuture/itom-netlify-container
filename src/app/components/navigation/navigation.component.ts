@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../services/user/user.service";
 
 @Component({
@@ -7,8 +7,8 @@ import {UserService} from "../../services/user/user.service";
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  user: any = {};
-
+  user: any = {status: 'unverified'};
+  @Input() isOpen: boolean = true;
   constructor(
     private userService: UserService,
   ) {

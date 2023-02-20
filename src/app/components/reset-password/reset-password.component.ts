@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -9,11 +9,12 @@ import {ActivatedRoute} from "@angular/router";
 export class ResetPasswordComponent implements OnInit {
   code: string = ''
 
-  user = {
+  payload = {
     email: '',
     password: '',
     c_password: ''
   };
+  email!: string;
 
   constructor(
     private route: ActivatedRoute
@@ -23,6 +24,10 @@ export class ResetPasswordComponent implements OnInit {
 
     if (this.route.snapshot.paramMap.get('code') !== null) {
       this.code = this.route.snapshot.paramMap.get('code') || '';
+    }
+    if (this.route.snapshot.paramMap.get('email') !== null) {
+      this.email = this.route.snapshot.paramMap.get('email') || '';
+      this.payload.email = this.email;
     }
   }
 

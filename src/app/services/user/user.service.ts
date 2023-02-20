@@ -16,6 +16,7 @@ export class UserService {
   credentialsToken = '0becf6f1-4f9e-4a24-8a45-36967f1a978f'
   credentialsOtpToken = 'fb3cf6f1-4f9e-4924-fa45-3b96cf14578e'
   api = environment
+
   constructor(
     private apiService: ApiService,
   ) {
@@ -27,7 +28,7 @@ export class UserService {
   user = this.userSubject.asObservable();
 
   initUsers() {
-    if(this.decodeToken() !== null) {
+    if (this.decodeToken() !== null) {
       this.apiService.call(this.api.api + '/v1/user', 'get', {}).subscribe((response: any) => {
         if (response.success) {
           if (response.data.email_validated_at !== null && response.data.phone_validated_at !== null) {
@@ -40,8 +41,9 @@ export class UserService {
       });
     }
   }
+
   setToken(token: any): void {
-    const encryptedToken = CryptoJS.AES.encrypt( token, this.password.trim()).toString();
+    const encryptedToken = CryptoJS.AES.encrypt(token, this.password.trim()).toString();
     this.objectSource.next(<string>this.jwt.decodeToken(token));
     localStorage.setItem(this.tokenUuid, encryptedToken);
   }
@@ -51,7 +53,7 @@ export class UserService {
     if (token === 'false') {
       return null;
     }
-    if(token !== null){
+    if (token !== null) {
       return CryptoJS.AES.decrypt(token, this.password.trim()).toString(CryptoJS.enc.Utf8);
     }
     return false;
@@ -93,13 +95,14 @@ export class UserService {
   removeOtpCredentials() {
     localStorage.removeItem(this.credentialsOtpToken);
   }
+
   removeCredentials() {
     localStorage.removeItem(this.credentialsToken);
   }
 
   decodeToken() {
     let token = this.jwt.decodeToken(this.getToken());
-    if(token === null){
+    if (token === null) {
       return null;
     }
     if (Date.now() >= token.exp * 1000) {
@@ -117,6 +120,10 @@ export class UserService {
 
   private localStorageClear() {
     localStorage.clear();
+  }
+
+  checkToken() {
+    return this.decodeToken() !== null;
   }
 }
 

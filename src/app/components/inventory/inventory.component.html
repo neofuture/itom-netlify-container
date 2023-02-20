@@ -1,3 +1,10 @@
 <div class="container">
-  Inventory
+  <div *ngIf="user.status == 'active'; else loading" class="message">
+    <h1>Inventory</h1>
+    <div>User is activated</div>
+  </div>
 </div>
+<ng-template #loading>
+  <app-loading [colour]="'#ffffff'"></app-loading>
+</ng-template>
+

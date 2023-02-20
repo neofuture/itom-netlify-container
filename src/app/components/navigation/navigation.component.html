@@ -1,31 +1,50 @@
 <div class="container">
-  <h3 *ngIf="user.first_name"><img src="/assets/images/profile.png"> {{ user.first_name }} {{ user.last_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
+
+  <img [class.tiny]="!isOpen" [class.big]="isOpen" src="/assets/images/itom-logo.png" class="logo" alt="logo"/>
+
+  <h3 *ngIf="user.status === 'active' && isOpen"><img src="/assets/images/profile.png"> {{ user.first_name }} {{ user.last_name}}</h3>
 
   <ul>
-    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true} ><i class="fas fa-dashboard"></i> Dashboard</a></li>
-    <li *ngIf="!user.first_name"><a routerLink="/register" routerLinkActive="active"><i class="fas fa-user-plus"></i> Register</a></li>
-    <li *ngIf="!user.first_name"><a routerLink="/confirm-account/sms" routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}><i class="fas fa-user"></i> Confirm Account SMS</a></li>
-    <li *ngIf="!user.first_name"><a routerLink="/confirm-account/email" routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}><i class="fas fa-user"></i> Confirm Account Email</a></li>
-
-
-    <!--  <li><a routerLink="/login/otp" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>Login OTP</a></li>-->
-    <!--  <li><a routerLink="/login/otp/sms" routerLinkActive="active">Login OTP Mobile</a></li>-->
-    <!--  <li><a routerLink="/login/otp/email" routerLinkActive="active">Login OTP Email</a></li>-->
-    <li *ngIf="!user.first_name"><a routerLink="/forgotten-password" routerLinkActive="active"><i class="fas fa-lock"></i> Forgotten Password</a></li>
-    <li *ngIf="!user.first_name"><a routerLink="/reset-password/1234567890123456789012345" routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}><i class="fas fa-lock"></i> Reset Password Link</a></li>
-
-    <!--  <li><a routerLink="/confirm-account/sms" routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}>Confirm Account SMS</a></li>-->
-    <!--  <li><a routerLink="/confirm-account/sms/acb123" routerLinkActive="active">Confirm Account SMS (abc123)</a></li>-->
-    <!--  <li><a routerLink="/confirm-account/email" routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}>Confirm Account Email</a></li>-->
-    <!--  <li><a routerLink="/confirm-account/email/acb123" routerLinkActive="active">Confirm Account Email (abc123)</a></li>-->
-      <li *ngIf="user.first_name"><a routerLink="/channels" routerLinkActive="active"><i class="fas fa-list-check"></i> Channels</a></li>
-      <li *ngIf="user.first_name"><a routerLink="/inventory" routerLinkActive="active"><i class="fas fa-boxes-stacked"></i> Inventory</a></li>
-      <li *ngIf="user.first_name"><a routerLink="/settings" routerLinkActive="active"><i class="fas fa-cog"></i> Settings</a></li>
-    <li><a><b>|</b></a></li>
-    <li *ngIf="!user.first_name"><a routerLink="/login" routerLinkActive="active"  [routerLinkActiveOptions]={exact:true}><i class="fas fa-lock"></i> Login</a></li>
-    <li *ngIf="user.first_name"><a routerLink="/logout" routerLinkActive="active"><i class="fas fa-unlock"></i> Logout {{ user.first_name }} {{ user.last_name}}</a></li>
-    <li><a routerLink="/delete-account" routerLinkActive="active"><i class="fas fa-user-minus"></i> Delete User</a></li>
-
+    <li><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}><i
+      class="fas fa-dashboard"></i>
+      <ng-container *ngIf="isOpen"> Dashboard</ng-container>
+    </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a [class.center]="!isOpen" routerLink="/channels" routerLinkActive="active"><i
+      class="fas fa-list-check"></i>
+      <ng-container *ngIf="isOpen"> Channels</ng-container>
+    </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a [class.center]="!isOpen" routerLink="/inventory" routerLinkActive="active"><i
+      class="fas fa-boxes-stacked"></i>
+      <ng-container *ngIf="isOpen"> Inventory</ng-container>
+    </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a [class.center]="!isOpen" routerLink="/orders" routerLinkActive="active"><i
+      class="fas fa-cart-shopping"></i>
+      <ng-container *ngIf="isOpen"> Orders</ng-container>
+    </a></li>
+    <li>
+      <hr>
+    </li>
+    <li *ngIf="user.status === 'active'">
+      <a [class.center]="!isOpen" routerLink="/settings" routerLinkActive="active"><i class="fas fa-cog"></i>
+      <ng-container *ngIf="isOpen"> Settings</ng-container>
+    </a></li>
+    <li *ngIf="user.status !== 'active'">
+      <a [class.center]="!isOpen" routerLink="/login" routerLinkActive="active"
+                                            [routerLinkActiveOptions]={exact:true}><i class="fas fa-lock"></i>
+      <ng-container *ngIf="isOpen"> Login</ng-container>
+    </a>
+    </li>
+    <li *ngIf="user.status !== 'active'">
+      <a [class.center]="!isOpen" routerLink="/register" routerLinkActive="active"><i class="fas fa-user"></i>
+      <ng-container *ngIf="isOpen"> Register</ng-container>
+    </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a [class.center]="!isOpen" routerLink="/logout" routerLinkActive="active"><i class="fas fa-unlock"></i>
+      <ng-container *ngIf="isOpen"> Logout</ng-container>
+    </a></li>
   </ul>
 
 </div>
