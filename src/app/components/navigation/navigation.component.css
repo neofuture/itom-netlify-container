@@ -55,7 +55,6 @@ ul li a.active {
 
 h3 {
   padding: 0 0 0 4px;
-  font-weight: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,11 +63,28 @@ h3 {
   margin: 0;
 }
 
-h3 img {
+.userImage {
+  padding: 0 0 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 4px;
+  margin: 0;
+}
+
+h3 >  img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
+  border: 1px solid var(--nav-colour);
+}
+
+.userImage > img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
   border: 1px solid var(--nav-colour);
 }
 

@@ -3,6 +3,7 @@
   <img [class.tiny]="!isOpen" [class.big]="isOpen" src="/assets/images/itom-logo.png" class="logo" alt="logo"/>
 
   <h3 *ngIf="user.status === 'active' && isOpen"><img src="/assets/images/profile.png"> {{ user.first_name }} {{ user.last_name}}</h3>
+  <div *ngIf="user.status === 'active' && !isOpen" class="userImage"><img src="/assets/images/profile.png"></div>
 
   <ul>
     <li><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}><i

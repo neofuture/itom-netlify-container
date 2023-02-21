@@ -2,19 +2,47 @@
   background-color: var(--blue-primary);
   color: var(--white);
   padding: 40px;
-  height:100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.message {
+  height: 100%;
+}
+
+.app-container {
+  background: linear-gradient(180deg, var(--blue-primary) 0%, var(--green-gradient-start) 100%);
+  color: var(--white);
+  padding: 15px 30px;
+  height: 100%;
+  text-align: left;
+}
+
+
+.container--inner {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 12px;
+  width: 100%;
+  border-radius: 4px;
+  height: calc(100% - 80px);
+  overflow:auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+h1 {
+  margin-bottom:15px;
+}
+
 .form-result {
   position: absolute;
-  display:block;
-  padding:10px 10px 10px 10px;
-  border-radius:12px;
-  color:white;
+  display: block;
+  padding: 10px 10px 10px 10px;
+  border-radius: 12px;
+  color: white;
   text-align: center;
   transition: all 500ms ease;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -31,30 +59,24 @@
 
 .form-result.closed {
   top: -10px;
-  opacity:0;
+  opacity: 0;
   transition: all 500ms ease;
 }
+
 .form-result.open {
   top: 12px;
-  opacity:1;
+  opacity: 1;
   transition: all 500ms ease;
 }
 
 hr {
-  border:0;
+  border: 0;
   border-top: 1px dashed #00000077;
 }
 
 .extraDetails {
   padding: 12px;
 }
-
-.message {
-  text-align: center;
-}
-
-
-
 
 .form-container {
   padding: 40px;
