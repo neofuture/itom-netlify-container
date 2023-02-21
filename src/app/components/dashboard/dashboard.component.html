@@ -21,6 +21,7 @@
 
   <div *ngIf="loaded && !user.first_name" class="form-container">
     You are not logged in, please <a routerLink="/login">login</a> to continue
+    <div>IP {{ ip }}</div>
   </div>
   <app-loading *ngIf="!loaded" [colour]="'#ffffff'"></app-loading>
 </div>
