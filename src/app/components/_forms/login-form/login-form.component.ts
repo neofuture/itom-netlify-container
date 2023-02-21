@@ -54,7 +54,7 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.token = this.userService.decodeToken();
     this.otpLocations = [
-      {label: 'Mobile SMS', value: 'sms'},
+      {label: 'SMS', value: 'sms'},
       {label: 'Email', value: 'email'},
     ];
 
