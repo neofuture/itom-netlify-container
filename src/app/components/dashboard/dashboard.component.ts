@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   user: any = {status: 'unverified'};
   message: string = '';
   loaded = false;
-
+  ip = '';
   constructor(
     private apiService: ApiService,
     private userService: UserService,
@@ -28,6 +28,11 @@ export class DashboardComponent implements OnInit {
           this.loaded = true;
         }
     });
+
+this.apiService.getIp().subscribe((ip: any) => {
+      this.ip = ip.ip;
+    })
+
 
     setTimeout(() => {
       this.loaded = true;
