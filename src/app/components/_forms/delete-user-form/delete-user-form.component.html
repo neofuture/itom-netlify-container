@@ -32,10 +32,10 @@
         type="submit"
         class="login-button"
         [disabled]="form.invalid || loading">
-        <app-loading [colour]="'#ffffff'" *ngIf="loading; else delete"></app-loading>
+        <app-loading [colour]="'#ffffff'" *ngIf="loading; else deleteUser"></app-loading>
       </button>
     </div>
   </form>
 </div>
 
-<ng-template #delete>Delete User</ng-template>
+<ng-template #deleteUser>Delete User</ng-template>

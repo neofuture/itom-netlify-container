@@ -53,7 +53,7 @@
           class="register-button"
           (click)="onSubmitMobile()"
           [disabled]="mobileForm.invalid || mobileLoading">
-          <app-loading [colour]="'#ffffff'" *ngIf="mobileLoading; else veryfyEmail"></app-loading>
+          <app-loading [colour]="'#ffffff'" *ngIf="mobileLoading; else verifyMobile"></app-loading>
         </button>
       </div>
     </div>
@@ -85,7 +85,7 @@
           class="register-button"
           (click)="onSubmitEmail()"
           [disabled]="emailForm.invalid || emailLoading">
-          <app-loading [colour]="'#ffffff'" *ngIf="emailLoading; else veryfyEmail"></app-loading>
+          <app-loading [colour]="'#ffffff'" *ngIf="emailLoading; else verifyEmail"></app-loading>
         </button>
       </div>
     </div>
@@ -103,4 +103,4 @@
 </div>
 
 <ng-template #verifyMobile>Verify</ng-template>
-<ng-template #veryfyEmail>Verify</ng-template>
+<ng-template #verifyEmail>Verify</ng-template>

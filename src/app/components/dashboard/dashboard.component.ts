@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {environment} from "../../../environments/environment";
 import {ApiService} from "../../services/api/api.service";
 import {UserService} from "../../services/user/user.service";
 import {UiService} from "../../services/api/ui.service";

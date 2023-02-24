@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../../services/api/api.service";
-import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-delete-account',
@@ -12,8 +10,7 @@ export class DeleteAccountComponent implements OnInit{
   user = {
     email: 'carlfearby@me.com'
   }
-  constructor(
-    private apiService: ApiService) {
+  constructor() {
   }
 
   ngOnInit(): void {

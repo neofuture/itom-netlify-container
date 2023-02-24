@@ -1,10 +1,11 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../../../environments/environment";
 import {ApiService} from "../../../services/api/api.service";
-import Validation, {startsWith07} from './utils/validation';
+import {startsWith07} from './utils/validation';
 import {UserService} from "../../../services/user/user.service";
 import {Router} from "@angular/router";
+import {UserAccountModel} from "../../../models/user-account.model";
 
 @Component({
   selector: 'app-update-user-form',
@@ -30,10 +31,12 @@ export class UpdateUserFormComponent implements OnInit, AfterViewInit {
   @Input() heading: string | undefined;
   @Input() body: string | undefined;
   @ViewChild('firstname', {static: true}) firstname?: ElementRef;
-  @Input() payload: any = {};
+  @Input() payload: UserAccountModel = {
+    first_name: '',
+    phone_verified_at: '',
+    email_verified_at: ''
+  };
   formMessageDetails: any = [];
-  private user: any;
-  private valid: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,15 +52,19 @@ export class UpdateUserFormComponent implements OnInit, AfterViewInit {
       for (let item in this.payload) {
         if (this.mobileForm.controls[item]) {
           if (item === 'phone') {
+            // @ts-ignore
             this.mobileForm.controls[item].setValue(this.payload[item].replace(/^(44)/, '0'));
           } else {
+            // @ts-ignore
             this.mobileForm.controls[item].setValue(this.payload[item]);
           }
         }
         if (this.emailForm.controls[item]) {
           if (item === 'phone') {
+            // @ts-ignore
             this.emailForm.controls[item].setValue(this.payload[item].replace(/^(44)/, '0'));
           } else {
+            // @ts-ignore
             this.emailForm.controls[item].setValue(this.payload[item]);
           }
         }

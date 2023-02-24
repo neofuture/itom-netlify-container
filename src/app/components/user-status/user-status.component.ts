@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserService} from "../../services/user/user.service";
+import {UserAccountModel} from "../../models/user-account.model";
 
 @Component({
   selector: 'app-user-status',
@@ -7,7 +8,7 @@ import {UserService} from "../../services/user/user.service";
   styleUrls: ['./user-status.component.css']
 })
 export class UserStatusComponent {
-  user: any = {status: 'unverified'};
+  user: UserAccountModel = {status: 'unverified', first_name: '', last_name: ''};
   constructor(
     private userService: UserService,
   ) {

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "./services/user/user.service";
-import {RouterOutlet} from "@angular/router";
 import {UiService} from "./services/api/ui.service";
 
 @Component({
@@ -9,8 +8,7 @@ import {UiService} from "./services/api/ui.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'itom-frontend';
-  isSidebarOpen: boolean = localStorage.getItem('sidebar') === 'false' ? false : true
+  isSidebarOpen: boolean = localStorage.getItem('sidebar') !== 'false'
   heading = '';
 
   constructor(
@@ -27,11 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   toggleSidebar() {
-    if(this.isSidebarOpen) {
-      this.isSidebarOpen = false;
-    } else {
-      this.isSidebarOpen = true;
-    }
+    this.isSidebarOpen = !this.isSidebarOpen;
     localStorage.setItem('sidebar', this.isSidebarOpen.toString());
   }
 }

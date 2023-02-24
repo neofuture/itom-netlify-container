@@ -1,11 +1,16 @@
-<div class="container">
+<div class="register--container" *ngIf="user.status == 'unverified'">
+  <app-update-user-form
+                        [payload]="user"
+                        heading=", please complete your registration"
+                        body="Before you can login you need to complete and confirm your registration details below. Please confirm the details are correct and click the Verify button."
+  >
+  </app-update-user-form>
+</div>
+
+
+
+<div class="container" *ngIf="user.status == 'active'">
   <div class="container-inner">
-    <app-update-user-form *ngIf="user.status == 'unverified'"
-                          [payload]="user"
-                          heading=", please complete your registration"
-                          body="Before you can login you need to complete and confirm your registration details below. Please confirm the details are correct and click the Verify button."
-    >
-    </app-update-user-form>
 
     <div *ngIf="user.status == 'active'">
       <div class="container--inner">
@@ -14,7 +19,7 @@
       </div>
     </div>
 
-    <div *ngIf="loaded && !user.first_name">
+    <div *ngIf="loaded && user.status != 'active'">
       You are not logged in, please <a routerLink="/login">login</a> to continue
       <div>IP {{ ip }}</div>
     </div>

@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
-import {catchError, Observable, throwError} from "rxjs";
+import {catchError, Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  ipAddress: any;
 
   constructor(
     private http: HttpClient
@@ -31,12 +30,11 @@ export class ApiService {
   }
 
   headers(): any {
-    const httpOptions = {
+    return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return httpOptions;
   }
 
   getIp() {
@@ -47,9 +45,17 @@ export class ApiService {
     data: any;
     status: number; error: { error: any; statusText: any; }; }): any {
     if (error.status === 500 || error.status === 405 || error.status === 403) {
-      return throwError(error);
+      return new customError(error.error.error);
     } else {
       return [error];
     }
+  }
+
+}
+
+class customError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'customError';
   }
 }

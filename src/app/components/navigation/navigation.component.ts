@@ -7,7 +7,7 @@ import {UserService} from "../../services/user/user.service";
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  version = window.version
+  version = '0.0.125';
   user: any = {status: 'unverified'};
   @Input() isOpen: boolean = true;
 
