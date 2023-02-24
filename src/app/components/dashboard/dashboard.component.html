@@ -1,27 +1,23 @@
-<div
-  [class.container]="(user.status !== 'active' && !loaded)  || (loaded && !user.first_name)"
-  [class.app-container]="user.status === 'active' && loaded"
->
-  <app-update-user-form *ngIf="user.status == 'unverified'"
-                        [payload]="user"
-                        heading=", please complete your registration"
-                        body="Before you can login you need to complete and confirm your registration details below. Please confirm the details are correct and click the Verify button."
-  >
-  </app-update-user-form>
+<div class="container">
+  <div class="container-inner">
+    <app-update-user-form *ngIf="user.status == 'unverified'"
+                          [payload]="user"
+                          heading=", please complete your registration"
+                          body="Before you can login you need to complete and confirm your registration details below. Please confirm the details are correct and click the Verify button."
+    >
+    </app-update-user-form>
 
-  <div *ngIf="user.status == 'active'" class="message">
-    <h1>
-<!--      <i class="fas fa-dashboard"></i>-->
-      Dashboard</h1>
-    <div class="container--inner">
-      Testing testing 123
+    <div *ngIf="user.status == 'active'">
+      <div class="container--inner">
+        Testing testing 123
+        <div>IP {{ ip }}</div>
+      </div>
+    </div>
+
+    <div *ngIf="loaded && !user.first_name">
+      You are not logged in, please <a routerLink="/login">login</a> to continue
       <div>IP {{ ip }}</div>
     </div>
+    <app-loading *ngIf="!loaded" [colour]="'#ffffff'"></app-loading>
   </div>
-
-  <div *ngIf="loaded && !user.first_name" class="form-container">
-    You are not logged in, please <a routerLink="/login">login</a> to continue
-    <div>IP {{ ip }}</div>
-  </div>
-  <app-loading *ngIf="!loaded" [colour]="'#ffffff'"></app-loading>
 </div>

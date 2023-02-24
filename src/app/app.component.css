@@ -52,3 +52,32 @@
 .toggleSidebar i {
   font-size:16px;
 }
+
+.app-container {
+  background: linear-gradient(180deg, var(--blue-primary) 0%, var(--green-gradient-start) 100%);
+  color: var(--white);
+  padding: 15px 30px;
+  height: 100%;
+  text-align: left;
+}
+
+.app-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-body {
+  margin-top:12px;
+  height: 100%;
+}
+
+.container--inner {
+  width: 100%;
+  border-radius: 4px;
+  height: calc(100% - 80px);
+}
+
+h1 {
+  white-space: nowrap;
+}

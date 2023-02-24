@@ -1,15 +1,17 @@
 <div class="container">
 
-  <img [class.tiny]="!isOpen" [class.big]="isOpen" src="/assets/images/itom-logo.png" class="logo" alt="logo"/>
-
-  <h3 *ngIf="user.status === 'active' && isOpen"><img src="/assets/images/profile.png"> {{ user.first_name }} {{ user.last_name}}</h3>
-  <div *ngIf="user.status === 'active' && !isOpen" class="userImage"><img src="/assets/images/profile.png"></div>
-
+  <img [class.tiny]="!isOpen" [class.big]="isOpen" src="/assets/images/logo.png" class="logo" alt="logo"/>
   <ul>
-    <li><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}><i
+    <li *ngIf="user.status === 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}><i
       class="fas fa-dashboard"></i>
       <ng-container *ngIf="isOpen"> Dashboard</ng-container>
     </a></li>
+
+    <li *ngIf="user.status !== 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}><i
+      class="fas fa-home"></i>
+      <ng-container *ngIf="isOpen"> Home</ng-container>
+    </a></li>
+
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/channels" routerLinkActive="active"><i
       class="fas fa-list-check"></i>
@@ -19,33 +21,34 @@
       <a [class.center]="!isOpen" routerLink="/inventory" routerLinkActive="active"><i
       class="fas fa-boxes-stacked"></i>
       <ng-container *ngIf="isOpen"> Inventory</ng-container>
+        <div class="badge" *ngIf="isOpen">1,674</div>
     </a></li>
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/orders" routerLinkActive="active"><i
       class="fas fa-cart-shopping"></i>
       <ng-container *ngIf="isOpen"> Orders</ng-container>
     </a></li>
-    <li>
-      <hr>
-    </li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/settings" routerLinkActive="active"><i class="fas fa-cog"></i>
-      <ng-container *ngIf="isOpen"> Settings</ng-container>
-    </a></li>
-    <li *ngIf="user.status !== 'active'">
-      <a [class.center]="!isOpen" routerLink="/login" routerLinkActive="active"
-                                            [routerLinkActiveOptions]={exact:true}><i class="fas fa-lock"></i>
-      <ng-container *ngIf="isOpen"> Login</ng-container>
-    </a>
-    </li>
-    <li *ngIf="user.status !== 'active'">
-      <a [class.center]="!isOpen" routerLink="/register" routerLinkActive="active"><i class="fas fa-user"></i>
-      <ng-container *ngIf="isOpen"> Register</ng-container>
+      <a [class.center]="!isOpen" routerLink="/shipping" routerLinkActive="active"><i
+      class="fas fa-truck-fast"></i>
+      <ng-container *ngIf="isOpen"> Shipping</ng-container>
     </a></li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/logout" routerLinkActive="active"><i class="fas fa-unlock"></i>
-      <ng-container *ngIf="isOpen"> Logout</ng-container>
+      <a [class.center]="!isOpen" routerLink="/templates" routerLinkActive="active"><i
+      class="fas fa-file-invoice"></i>
+      <ng-container *ngIf="isOpen"> Templates</ng-container>
+    </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a [class.center]="!isOpen" routerLink="/fulfilment" routerLinkActive="active"><i
+      class="fas fa-box-open"></i>
+      <ng-container *ngIf="isOpen"> Fulfilment</ng-container>
+    </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a [class.center]="!isOpen" routerLink="/messages" routerLinkActive="active"><i
+      class="fas fa-message"></i>
+      <ng-container *ngIf="isOpen"> Messages</ng-container>
     </a></li>
   </ul>
 
+  <div *ngIf="isOpen" class="version">Version: {{ version }}</div>
 </div>

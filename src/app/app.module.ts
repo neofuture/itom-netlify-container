@@ -39,6 +39,15 @@ import {LoginOtpComponent} from './components/login-otp/login-otp.component';
 import { UpdateUserFormComponent } from './components/_forms/update-user-form/update-user-form.component';
 import { ResetPasswordFormComponent } from './components/_forms/reset-password-form/reset-password-form.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { UserStatusComponent } from './components/user-status/user-status.component';
+import {UiService} from "./services/api/ui.service";
+import {Observable} from "rxjs";
+import { ShippingComponent } from './components/shipping/shipping.component';
+import { TemplatesComponent } from './components/templates/templates.component';
+import { FulfilmentComponent } from './components/fulfilment/fulfilment.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { SentItemsComponent } from './components/messages/sent-items/sent-items.component';
+import { TrashComponent } from './components/messages/trash/trash.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +75,14 @@ import { OrdersComponent } from './components/orders/orders.component';
     LoginOtpFormComponent,
     UpdateUserFormComponent,
     ResetPasswordFormComponent,
-    OrdersComponent
+    OrdersComponent,
+    UserStatusComponent,
+    ShippingComponent,
+    TemplatesComponent,
+    FulfilmentComponent,
+    MessagesComponent,
+    SentItemsComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule,
@@ -92,4 +108,10 @@ import { OrdersComponent } from './components/orders/orders.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  private heading: Observable<string>;
+  constructor(
+    private uiService: UiService
+  ) {
+    this.heading = this.uiService.heading;
+  }
 }

@@ -6,7 +6,8 @@ html {
 }
 
 body {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /*font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+  font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -19,12 +20,14 @@ body {
   --nav-border: #46c546;
   --blue-primary: #2c69b1;
   --green-primary: #7fb346;
-  --red-primary: #ea5b5b;
+  --red-primary: #ee1d1d;
+  --yellow-primary: #f7b500;
   --green-gradient-start: #87b94e;
   --green-gradient-end: #b5e181;
   --green-background: #f7fbf8;
   --white: #ffffff;
   --black: #444444;
+  --grey: #dddddd;
 }
 
 .ui {
@@ -71,5 +74,12 @@ a:hover {
 h1 {
   margin: 0;
   padding: 6px 0 6px 0;
-  font-weight: 100;
+  font-weight: 400;
+}
+
+.otp-input:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #BFDBFE;
+  border-color: #3B82F6;
 }

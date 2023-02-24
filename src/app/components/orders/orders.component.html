@@ -1,12 +1,6 @@
-<div
-  [class.container]="user.status !== 'active'"
-  [class.app-container]="user.status === 'active'"
->
-  <div *ngIf="user.status == 'active'; else loading" class="message">
-    <h1>
-<!--      <i class="fas fa-cart-shopping"></i> -->
-      Orders</h1>
-    <div class="container--inner">
+<div class="container">
+  <div class="container-inner">
+    <div *ngIf="user.status == 'active'; else loading" >
       Testing testing 123
     </div>
   </div>

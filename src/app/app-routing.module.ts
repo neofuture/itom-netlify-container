@@ -15,6 +15,12 @@ import {ConfirmAccountComponent} from "./components/confirm-account/confirm-acco
 import {LoginOtpComponent} from "./components/login-otp/login-otp.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {OrdersComponent} from "./components/orders/orders.component";
+import {ShippingComponent} from "./components/shipping/shipping.component";
+import {TemplatesComponent} from "./components/templates/templates.component";
+import {FulfilmentComponent} from "./components/fulfilment/fulfilment.component";
+import {MessagesComponent} from "./components/messages/messages.component";
+import {SentItemsComponent} from "./components/messages/sent-items/sent-items.component";
+import {TrashComponent} from "./components/messages/trash/trash.component";
 
 
 const routes: Routes = [
@@ -29,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: 'login/otp/:device', component: LoginOtpComponent
+  },
+  {
+    path: 'login/otp/:device/:code', component: LoginOtpComponent
   },
   {
     path: 'logout', component: LogoutComponent
@@ -64,7 +73,28 @@ const routes: Routes = [
     path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard]
   },
   {
+    path: 'inventory/:activeTab', component: InventoryComponent, canActivate: [AuthGuard]
+  },
+  {
     path: 'orders', component: OrdersComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'shipping', component: ShippingComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'templates', component: TemplatesComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'fulfilment', component: FulfilmentComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'messages', component: MessagesComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'messages/sent-items', component: SentItemsComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'messages/trash', component: TrashComponent, canActivate: [AuthGuard]
   },
   {
     path: 'delete-account', component: DeleteAccountComponent, canActivate: [AuthGuard]

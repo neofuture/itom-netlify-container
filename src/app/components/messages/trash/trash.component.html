@@ -2,7 +2,7 @@
   <ul class="navigation">
     <li *ngFor="let tab of tabs; let i = index"
         (click)="setActiveTab(tab.slug)"
-        routerLink="/inventory/{{tab.slug}}"
+        routerLink="/messages/{{tab.slug}}"
         [class.active]="activeTab === tab.slug">
       <i class="fas {{tab.icon}}"></i> {{tab.name}}
       <div *ngIf="tab.badge > 0" class="badge">
@@ -13,8 +13,7 @@
   </ul>
   <div class="container-inner">
     <div *ngIf="user.status == 'active'; else loading">
-      Testing testing 123
-      <div>Tab: {{activeTab}}</div>
+      Trash
     </div>
   </div>
 </div>

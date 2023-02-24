@@ -17,6 +17,7 @@ export class LoginOtpFormComponent implements OnInit{
   @Input() otpLength = 6;
   @Input() otp: string = '';
   @Input() device: string = '';
+  @Input() code: string = '';
   @ViewChild('ngOtpInput') ngOtpInputRef: any;
   credentials: any;
   valid: boolean = false;
@@ -46,6 +47,7 @@ export class LoginOtpFormComponent implements OnInit{
     this.apiService.getIp().subscribe((ip: any) => {
       this.ip = ip.ip;
     });
+    this.otp = this.code;
   }
 
   onOtpChange($event: string) {

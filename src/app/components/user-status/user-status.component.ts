@@ -1,16 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {UserService} from "../../services/user/user.service";
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css']
+  selector: 'app-user-status',
+  templateUrl: './user-status.component.html',
+  styleUrls: ['./user-status.component.css']
 })
-export class NavigationComponent implements OnInit {
-  version = window.version
+export class UserStatusComponent {
   user: any = {status: 'unverified'};
-  @Input() isOpen: boolean = true;
-
   constructor(
     private userService: UserService,
   ) {

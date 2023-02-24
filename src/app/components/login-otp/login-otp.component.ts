@@ -11,6 +11,7 @@ export class LoginOtpComponent implements OnInit{
 
   device = 'sms';
   deviceName: string = 'mobile phone'
+  code: string = '';
   constructor(
     private route: ActivatedRoute,
     private userService: UserService
@@ -28,6 +29,9 @@ export class LoginOtpComponent implements OnInit{
       if(this.device === 'email') {
         this.deviceName = 'email address';
       }
+    }
+    if (this.route.snapshot.paramMap.get('code') !== null) {
+      this.code = this.route.snapshot.paramMap.get('code') || '';
     }
   }
 

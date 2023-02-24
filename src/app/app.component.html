@@ -10,6 +10,21 @@
       <i *ngIf="isSidebarOpen" class="fa fa-chevron-left"></i>
       <i *ngIf="!isSidebarOpen" class="fa fa-chevron-right"></i>
     </button>
-    <router-outlet></router-outlet>
+    <div class="app-container">
+      <div class="app-header">
+        <div>
+          <h1>{{ heading }}</h1>
+        </div>
+        <div>
+          <app-user-status></app-user-status>
+        </div>
+      </div>
+      <div class="app-body">
+        <div class="container--inner">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
