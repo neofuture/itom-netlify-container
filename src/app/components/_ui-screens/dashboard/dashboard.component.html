@@ -7,7 +7,14 @@
   </app-update-user-form>
 </div>
 
-
+<div class="container" *ngIf="user.status != 'active'">
+  <div class="login-form">
+    <app-login-form
+      heading="Login"
+      body="Please login to your account"
+      [payload]="user"></app-login-form>
+  </div>
+</div>
 
 <div class="container" *ngIf="user.status == 'active'">
   <app-tabs *ngIf="enableTabs"

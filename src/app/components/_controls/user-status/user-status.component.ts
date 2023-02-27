@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {UserService} from "../../services/user/user.service";
-import {UserAccountModel} from "../../models/user-account.model";
+import {UserService} from "../../../services/user/user.service";
+import {UserAccountModel} from "../../../models/user-account.model";
 
 @Component({
   selector: 'app-user-status',
