@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class ForgottenPasswordComponent {
 
   user = {
-    email: 'carlfearby@me.com'
+    email: ''
   }
 }

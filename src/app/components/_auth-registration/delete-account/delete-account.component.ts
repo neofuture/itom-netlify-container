@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class DeleteAccountComponent implements OnInit{
   status: any;
   user = {
-    email: 'carlfearby@me.com'
+    email: ''
   }
   constructor() {
   }
