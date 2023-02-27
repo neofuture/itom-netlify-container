@@ -25,10 +25,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ButtonModule} from "primeng/button";
 import {NgOtpInputModule} from "ng-otp-input";
 import {ErrorComponent} from './components/error/error.component';
-import {DashboardComponent} from './components/dashboard/dashboard.component';
-import {SettingsComponent} from './components/settings/settings.component';
-import {ChannelsComponent} from './components/channels/channels.component';
-import {InventoryComponent} from './components/inventory/inventory.component';
+import {DashboardComponent} from './components/_ui-screens/dashboard/dashboard.component';
+import {SettingsComponent} from './components/_ui-screens/settings/settings.component';
+import {ChannelsComponent} from './components/_ui-screens/channels/channels.component';
+import {InventoryComponent} from './components/_ui-screens/inventory/inventory.component';
 import {DeleteAccountComponent} from './components/delete-account/delete-account.component';
 import {DeleteUserFormComponent} from './components/_forms/delete-user-form/delete-user-form.component';
 import {ConfirmAccountComponent} from './components/confirm-account/confirm-account.component';
@@ -38,16 +38,26 @@ import {LoginOtpFormComponent} from './components/_forms/login-otp-form/login-ot
 import {LoginOtpComponent} from './components/login-otp/login-otp.component';
 import { UpdateUserFormComponent } from './components/_forms/update-user-form/update-user-form.component';
 import { ResetPasswordFormComponent } from './components/_forms/reset-password-form/reset-password-form.component';
-import { OrdersComponent } from './components/orders/orders.component';
+import { OrdersComponent } from './components/_ui-screens/orders/orders.component';
 import { UserStatusComponent } from './components/user-status/user-status.component';
 import {UiService} from "./services/api/ui.service";
 import {Observable} from "rxjs";
-import { ShippingComponent } from './components/shipping/shipping.component';
-import { TemplatesComponent } from './components/templates/templates.component';
-import { FulfilmentComponent } from './components/fulfilment/fulfilment.component';
-import { MessagesComponent } from './components/messages/messages.component';
-import { SentItemsComponent } from './components/messages/sent-items/sent-items.component';
-import { TrashComponent } from './components/messages/trash/trash.component';
+import { ShippingComponent } from './components/_ui-screens/shipping/shipping.component';
+import { TemplatesComponent } from './components/_ui-screens/templates/templates.component';
+import { FulfilmentComponent } from './components/_ui-screens/fulfilment/fulfilment.component';
+import { MessagesComponent } from './components/_ui-screens/messages/messages.component';
+import { SentItemsComponent } from './components/_ui-screens/messages/sent-items/sent-items.component';
+import { TrashComponent } from './components/_ui-screens/messages/trash/trash.component';
+import { IconComponent } from './components/_branding/icon/icon.component';
+import { LogoComponent } from './components/_branding/logo/logo.component';
+import { TabsComponent } from './components/_controls/tabs/tabs.component';
+import { InboxComponent } from './components/_ui-screens/messages/inbox/inbox.component';
+import { ProductsComponent } from './components/_ui-screens/inventory/products/products.component';
+import { CategoriesComponent } from './components/_ui-screens/inventory/categories/categories.component';
+import { BrandsComponent } from './components/_ui-screens/inventory/brands/brands.component';
+import { AttributesComponent } from './components/_ui-screens/inventory/attributes/attributes.component';
+import { VariantsComponent } from './components/_ui-screens/inventory/variants/variants.component';
+import { CollectionsComponent } from './components/_ui-screens/inventory/collections/collections.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +92,17 @@ import { TrashComponent } from './components/messages/trash/trash.component';
     FulfilmentComponent,
     MessagesComponent,
     SentItemsComponent,
-    TrashComponent
+    TrashComponent,
+    IconComponent,
+    LogoComponent,
+    TabsComponent,
+    InboxComponent,
+    ProductsComponent,
+    CategoriesComponent,
+    BrandsComponent,
+    AttributesComponent,
+    VariantsComponent,
+    CollectionsComponent
   ],
   imports: [
     BrowserModule,

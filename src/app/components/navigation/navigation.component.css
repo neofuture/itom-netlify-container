@@ -2,16 +2,25 @@
   padding: 15px 0 0 0;
   text-align: center;
   user-select: none;
+  position: relative;
 }
 
-.logo {
-  width: 180px;
-  margin-bottom: 40px;
-  transition: all 300ms;
+.logo.isClosed {
+  margin-bottom: 20px;
+  transition: all 100ms;
+  width:100%;
+  height:46px;
+  opacity:0;
+  text-align: center;
 }
 
-.tiny {
-  width: 16px;
+.logo.isOpen {
+  width:100%;
+  height:145px;
+  transition: all 100ms;
+  margin-bottom:20px;
+  opacity:1;
+
 }
 
 .big {
@@ -30,7 +39,7 @@ ul li {
   display: flex;
   justify-items: center;
   align-content: center;
-  transition: all 300ms;
+  transition: all 100ms;
   margin-bottom: 5px;
   position: relative;
 }
@@ -39,7 +48,7 @@ ul li a {
   text-decoration: none;
   padding: 8px;
   color: var(--nav-colour);
-  transition: all 300ms;
+  transition: all 100ms;
   border-radius: 4px;
   margin: 0 2px 0 2px;
 }
@@ -47,12 +56,12 @@ ul li a {
 ul li a:hover {
   background-color: var(--blue-primary);
   color: white;
-  transition: all 300ms;
+  transition: all 100ms;
 }
 
 ul li a.active {
   background-color: var(--green-primary);
-  transition: all 300ms;
+  transition: all 100ms;
   color: white;
 }
 
@@ -111,4 +120,26 @@ hr {
   text-align: center;
   font-size:12px;
   width:230px;
+}
+
+.hide-text li {
+  text-align: center;
+}
+
+.icon {
+  position:absolute;
+  left:-4px;
+  transition: all 100ms;
+  margin-top:10px;
+  width:100%;
+
+}
+
+.isIconOpen {
+  opacity: 0;
+  transition: all 100ms;
+}
+.isIconClosed {
+  opacity: 1;
+  transition: all 100ms;
 }

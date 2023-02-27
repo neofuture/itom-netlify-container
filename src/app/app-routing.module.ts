@@ -6,21 +6,28 @@ import {ForgottenPasswordComponent} from "./components/forgotten-password/forgot
 import {ResetPasswordComponent} from "./components/reset-password/reset-password.component";
 import {LogoutComponent} from "./components/logout/logout.component";
 import {ErrorComponent} from "./components/error/error.component";
-import {DashboardComponent} from "./components/dashboard/dashboard.component";
-import {SettingsComponent} from "./components/settings/settings.component";
-import {ChannelsComponent} from "./components/channels/channels.component";
-import {InventoryComponent} from "./components/inventory/inventory.component";
+import {DashboardComponent} from "./components/_ui-screens/dashboard/dashboard.component";
+import {SettingsComponent} from "./components/_ui-screens/settings/settings.component";
+import {ChannelsComponent} from "./components/_ui-screens/channels/channels.component";
+import {InventoryComponent} from "./components/_ui-screens/inventory/inventory.component";
 import {DeleteAccountComponent} from "./components/delete-account/delete-account.component";
 import {ConfirmAccountComponent} from "./components/confirm-account/confirm-account.component";
 import {LoginOtpComponent} from "./components/login-otp/login-otp.component";
 import {AuthGuard} from "./guards/auth.guard";
-import {OrdersComponent} from "./components/orders/orders.component";
-import {ShippingComponent} from "./components/shipping/shipping.component";
-import {TemplatesComponent} from "./components/templates/templates.component";
-import {FulfilmentComponent} from "./components/fulfilment/fulfilment.component";
-import {MessagesComponent} from "./components/messages/messages.component";
-import {SentItemsComponent} from "./components/messages/sent-items/sent-items.component";
-import {TrashComponent} from "./components/messages/trash/trash.component";
+import {OrdersComponent} from "./components/_ui-screens/orders/orders.component";
+import {ShippingComponent} from "./components/_ui-screens/shipping/shipping.component";
+import {TemplatesComponent} from "./components/_ui-screens/templates/templates.component";
+import {FulfilmentComponent} from "./components/_ui-screens/fulfilment/fulfilment.component";
+import {MessagesComponent} from "./components/_ui-screens/messages/messages.component";
+import {SentItemsComponent} from "./components/_ui-screens/messages/sent-items/sent-items.component";
+import {TrashComponent} from "./components/_ui-screens/messages/trash/trash.component";
+import {InboxComponent} from "./components/_ui-screens/messages/inbox/inbox.component";
+import {ProductsComponent} from "./components/_ui-screens/inventory/products/products.component";
+import {CategoriesComponent} from "./components/_ui-screens/inventory/categories/categories.component";
+import {BrandsComponent} from "./components/_ui-screens/inventory/brands/brands.component";
+import {AttributesComponent} from "./components/_ui-screens/inventory/attributes/attributes.component";
+import {VariantsComponent} from "./components/_ui-screens/inventory/variants/variants.component";
+import {CollectionsComponent} from "./components/_ui-screens/inventory/collections/collections.component";
 
 
 const routes: Routes = [
@@ -70,10 +77,27 @@ const routes: Routes = [
     path: 'channels', component: ChannelsComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'inventory/:activeTab', component: InventoryComponent, canActivate: [AuthGuard]
+    path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard],
+    children: [
+      {
+        path: '', component: ProductsComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'brands', component: BrandsComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'attributes', component: AttributesComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'variants', component: VariantsComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'collections', component: CollectionsComponent, canActivate: [AuthGuard]
+      }
+      ]
   },
   {
     path: 'orders', component: OrdersComponent, canActivate: [AuthGuard]
@@ -88,13 +112,18 @@ const routes: Routes = [
     path: 'fulfilment', component: FulfilmentComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'messages', component: MessagesComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'messages/sent-items', component: SentItemsComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'messages/trash', component: TrashComponent, canActivate: [AuthGuard]
+    path: 'messages', component: MessagesComponent, canActivate: [AuthGuard],
+    children: [
+      {
+        path: '', component: InboxComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'sent-items', component: SentItemsComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'trash', component: TrashComponent, canActivate: [AuthGuard]
+      },
+      ]
   },
   {
     path: 'delete-account', component: DeleteAccountComponent, canActivate: [AuthGuard]

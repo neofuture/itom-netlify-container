@@ -1,54 +1,68 @@
 <div class="container">
 
-  <img [class.tiny]="!isOpen" [class.big]="isOpen" src="/assets/images/logo.png" class="logo" alt="logo"/>
-  <ul>
-    <li *ngIf="user.status === 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}><i
+  <div  [class.isIconOpen]="isOpen"
+        [class.isIconClosed]="!isOpen"
+        class="icon">
+    <app-icon colour="#1a77bc"
+              width="58px"
+              height="34px"></app-icon>
+  </div>
+
+
+  <div  [class.isOpen]="isOpen"
+        [class.isClosed]="!isOpen"
+        class="logo">
+  <app-logo width="200px" height="145px"></app-logo>
+  </div>
+
+  <ul [class.hide-text]="!isOpen">
+    <li *ngIf="user.status === 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active"
+                                            [routerLinkActiveOptions]={exact:true}><i
       class="fas fa-dashboard"></i>
       <ng-container *ngIf="isOpen"> Dashboard</ng-container>
     </a></li>
 
-    <li *ngIf="user.status !== 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}><i
+    <li *ngIf="user.status !== 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active"
+                                            [routerLinkActiveOptions]={exact:true}><i
       class="fas fa-home"></i>
       <ng-container *ngIf="isOpen"> Home</ng-container>
     </a></li>
 
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/channels" routerLinkActive="active"><i
-      class="fas fa-list-check"></i>
-      <ng-container *ngIf="isOpen"> Channels</ng-container>
-    </a></li>
+        class="fas fa-list-check"></i>
+        <ng-container *ngIf="isOpen"> Channels</ng-container>
+      </a></li>
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/inventory" routerLinkActive="active"><i
-      class="fas fa-boxes-stacked"></i>
-      <ng-container *ngIf="isOpen"> Inventory</ng-container>
+        class="fas fa-boxes-stacked"></i>
+        <ng-container *ngIf="isOpen"> Inventory</ng-container>
         <div class="badge" *ngIf="isOpen">1,674</div>
-    </a></li>
+      </a></li>
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/orders" routerLinkActive="active"><i
-      class="fas fa-cart-shopping"></i>
-      <ng-container *ngIf="isOpen"> Orders</ng-container>
-    </a></li>
+        class="fas fa-cart-shopping"></i>
+        <ng-container *ngIf="isOpen"> Orders</ng-container>
+      </a></li>
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/shipping" routerLinkActive="active"><i
-      class="fas fa-truck-fast"></i>
-      <ng-container *ngIf="isOpen"> Shipping</ng-container>
-    </a></li>
+        class="fas fa-truck-fast"></i>
+        <ng-container *ngIf="isOpen"> Shipping</ng-container>
+      </a></li>
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/templates" routerLinkActive="active"><i
-      class="fas fa-file-invoice"></i>
-      <ng-container *ngIf="isOpen"> Templates</ng-container>
-    </a></li>
+        class="fas fa-file-invoice"></i>
+        <ng-container *ngIf="isOpen"> Templates</ng-container>
+      </a></li>
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/fulfilment" routerLinkActive="active"><i
-      class="fas fa-box-open"></i>
-      <ng-container *ngIf="isOpen"> Fulfilment</ng-container>
-    </a></li>
+        class="fas fa-box-open"></i>
+        <ng-container *ngIf="isOpen"> Fulfilment</ng-container>
+      </a></li>
     <li *ngIf="user.status === 'active'">
       <a [class.center]="!isOpen" routerLink="/messages" routerLinkActive="active"><i
-      class="fas fa-message"></i>
-      <ng-container *ngIf="isOpen"> Messages</ng-container>
-    </a></li>
+        class="fas fa-message"></i>
+        <ng-container *ngIf="isOpen"> Messages</ng-container>
+      </a></li>
   </ul>
-
-  <div *ngIf="isOpen" class="version">Version: {{ version }}</div>
 </div>

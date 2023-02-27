@@ -1,11 +1,15 @@
+// noinspection NonAsciiCharacters,JSNonASCIINames
+
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import * as CryptoJS from 'crypto-js';
+// noinspection NonAsciiCharacters
 import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
 import {ApiService} from "../api/api.service";
 import {environment} from "../../../environments/environment";
 
+// noinspection JSNonASCIINames
 @Injectable({
   providedIn: 'root'
 })
@@ -128,17 +132,17 @@ export class UserService {
 }
 
 
-// "aud":     This is the "audience" claim and it identifies the intended recipient of the token.
+// "aud":     This is the "audience" claim, and it identifies the intended recipient of the token.
 //            The value is a unique identifier for the recipient.
-// "jti":     This is the "JWT ID" claim and it provides a unique identifier for the token.
+// "jti":     This is the "JWT ID" claim, and it provides a unique identifier for the token.
 //            This can be used to prevent token replay attacks.
-// "iat":     This is the "issued at" claim and it represents the time at which the token was issued,
+// "iat":     This is the "issued at" claim, and it represents the time at which the token was issued,
 //            as a Unix timestamp.
-// "nbf":     This is the "not before" claim and it represents the time before which the token should
+// "nbf":     This is the "not before" claim, and it represents the time before which the token should
 //            not be accepted for processing. This can be used to prevent token replay attacks.
-// "exp":     This is the "expiration time" claim and it represents the time at which the token will
+// "exp":     This is the "expiration time" claim, and it represents the time at which the token will
 //            expire and can no longer be used.
-// "sub":     This is the "subject" claim and it identifies the subject of the token, such as a user ID.
-// "scopes":  This is an optional claim and it lists the scopes associated with the token, if any.
+// "sub":     This is the "subject" claim, and it identifies the subject of the token, such as a user ID.
+// "scopes":  This is an optional claim, and it lists the scopes associated with the token, if any.
 //            A scope is a string that defines the permissions associated with the token. An empty array
 //            in this case indicates that the token doesn't have any associated scopes.
