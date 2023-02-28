@@ -8,18 +8,18 @@
 .logo.isClosed {
   margin-bottom: 20px;
   transition: all 100ms;
-  width:100%;
-  height:46px;
-  opacity:0;
+  width: 100%;
+  height: 46px;
+  opacity: 0;
   text-align: center;
 }
 
 .logo.isOpen {
-  width:100%;
-  height:145px;
+  width: 100%;
+  height: 145px;
   transition: all 100ms;
-  margin-bottom:20px;
-  opacity:1;
+  margin-bottom: 20px;
+  opacity: 1;
 
 }
 
@@ -63,6 +63,10 @@ ul li a.active {
   background-color: var(--green-primary);
   transition: all 100ms;
   color: white;
+}
+
+.hiddenOption {
+  display: none;
 }
 
 h3 {
@@ -118,8 +122,8 @@ hr {
   position: absolute;
   bottom: 4px;
   text-align: center;
-  font-size:12px;
-  width:230px;
+  font-size: 12px;
+  width: 230px;
 }
 
 .hide-text li {
@@ -127,11 +131,11 @@ hr {
 }
 
 .icon {
-  position:absolute;
-  left:-4px;
+  position: absolute;
+  left: -4px;
   transition: all 100ms;
-  margin-top:10px;
-  width:100%;
+  margin-top: 10px;
+  width: 100%;
 
 }
 
@@ -139,7 +143,15 @@ hr {
   opacity: 0;
   transition: all 100ms;
 }
+
 .isIconClosed {
   opacity: 1;
   transition: all 100ms;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .hiddenOption {
+    display: block;
+  }
 }

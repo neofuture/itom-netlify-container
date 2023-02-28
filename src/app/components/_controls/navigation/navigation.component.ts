@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserService} from "../../../services/user/user.service";
 
 @Component({
@@ -10,7 +10,7 @@ export class NavigationComponent implements OnInit {
   version = '0.0.125';
   user: any = {status: 'unverified'};
   @Input() isOpen: boolean = true;
-
+  @Output() clicked = new EventEmitter<boolean>();
   constructor(
     private userService: UserService,
   ) {
@@ -20,5 +20,9 @@ export class NavigationComponent implements OnInit {
     this.userService.user.subscribe((user: any) => {
       this.user = user;
     });
+  }
+
+  fireClickEvent() {
+    this.clicked.emit(true);
   }
 }

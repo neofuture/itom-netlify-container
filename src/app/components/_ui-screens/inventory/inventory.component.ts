@@ -35,14 +35,16 @@ export class InventoryComponent implements OnInit {
 
   initTabs() {
     this.activeTab = this.tabs[0].slug;
-    this.route.children[0].url.subscribe((url: any) => {
-      if (url[0]) {
-        this.activeTab = url[0].path;
-      }
-      setTimeout(() => {
-        this.uiService.setHeading('Inventory - ' + this.tabs.find((t: any) => t.slug === this.activeTab)?.name);
+    if(this.route.children[0]) {
+      this.route.children[0].url.subscribe((url: any) => {
+        if (url[0]) {
+          this.activeTab = url[0].path;
+        }
+        setTimeout(() => {
+          this.uiService.setHeading('Inventory - ' + this.tabs.find((t: any) => t.slug === this.activeTab)?.name);
+        });
       });
-    });
+    }
   }
 
   setTab(tab: any) {

@@ -32,7 +32,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.uiService.setHeading('Dashboard');
+    setTimeout(() =>{
+      this.uiService.setHeading('Dashboard');
+    });
     this.userService.user.subscribe((user: any) => {
       this.user = user;
       if (user.first_name) {
@@ -53,14 +55,14 @@ export class DashboardComponent implements OnInit {
 
   initTabs() {
     this.activeTab = this.tabs[0].slug;
-    this.route.children[0].url.subscribe((url: any) => {
-      if (url[0]) {
-        this.activeTab = url[0].path;
-      }
-      setTimeout(() => {
-        this.uiService.setHeading('Fulfilment - ' + this.tabs.find((t: any) => t.slug === this.activeTab)?.name);
+    if(this.route.children[0]) {
+      this.route.children[0].url.subscribe((url: any) => {
+        setTimeout(() => {
+          this.uiService.setHeading('Fulfilment - ' + this.tabs.find((t: any) => t.slug === this.activeTab)?.name);
+        });
       });
-    });
+    }
+
   }
 
   setTab(tab: any) {

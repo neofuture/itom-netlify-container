@@ -5,6 +5,12 @@
        }">
     <app-navigation [isOpen]="isSidebarOpen"></app-navigation>
   </div>
+  <div class="mobileNav" #mobileNav>
+    <app-navigation [isOpen]="true" (clicked)="closeBurgerMenu()"></app-navigation>
+    <div class="mobileNav__close" (click)="closeBurgerMenu()">
+      <i class="fas fa-times"></i>
+    </div>
+  </div>
   <div class="container">
     <button (click)="toggleSidebar()" class="toggleSidebar" [class.is-closed]="!isSidebarOpen">
       <i *ngIf="isSidebarOpen" class="fa fa-chevron-left"></i>
@@ -13,10 +19,13 @@
     <div class="app-container">
       <div class="app-header">
         <div>
-          <h1>{{ heading }}</h1>
+          <h1><app-icon [colour]="'#ffffff'" width="36px" class="icon"></app-icon> {{ heading }}</h1>
         </div>
-        <div>
+        <div class="userStatus">
           <app-user-status></app-user-status>
+        </div>
+        <div class="burgerMenu" (click)="openBurgerMenu()">
+          <i class="fas fa-bars"></i>
         </div>
       </div>
       <div class="app-body">

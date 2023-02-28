@@ -4,6 +4,7 @@ import {UiService} from "../../../services/api/ui.service";
 import {TabModel} from "../../../models/tab.model";
 import {ActivatedRoute} from "@angular/router";
 import {tabs} from "./tabs";
+
 @Component({
   selector: 'app-channels',
   templateUrl: './channels.component.html',
@@ -27,7 +28,9 @@ export class ChannelsComponent implements OnInit {
   user: any = {status: 'unverified'};
 
   ngOnInit() {
-    this.uiService.setHeading('Channels');
+    setTimeout(() => {
+      this.uiService.setHeading('Channels');
+    });
     this.userService.user.subscribe((user: any) => {
       this.user = user;
     });
@@ -36,14 +39,16 @@ export class ChannelsComponent implements OnInit {
 
   initTabs() {
     this.activeTab = this.tabs[0].slug;
-    this.route.children[0].url.subscribe((url: any) => {
-      if (url[0]) {
-        this.activeTab = url[0].path;
-      }
-      setTimeout(() => {
-        this.uiService.setHeading('Channels - ' + this.tabs.find((t: any) => t.slug === this.activeTab)?.name);
+    if (this.route.children[0]) {
+      this.route.children[0].url.subscribe((url: any) => {
+        if (url[0]) {
+          this.activeTab = url[0].path;
+        }
+        setTimeout(() => {
+          this.uiService.setHeading('Channels - ' + this.tabs.find((t: any) => t.slug === this.activeTab)?.name);
+        });
       });
-    });
+    }
   }
 
   setTab(tab: any) {

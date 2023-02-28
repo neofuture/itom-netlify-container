@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from "./services/user/user.service";
 import {UiService} from "./services/api/ui.service";
 
@@ -10,6 +10,7 @@ import {UiService} from "./services/api/ui.service";
 export class AppComponent implements OnInit {
   isSidebarOpen: boolean = localStorage.getItem('sidebar') !== 'false'
   heading = '';
+  @ViewChild('mobileNav') mobileNav: any;
 
   constructor(
     private userService: UserService,
@@ -27,5 +28,13 @@ export class AppComponent implements OnInit {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
     localStorage.setItem('sidebar', this.isSidebarOpen.toString());
+  }
+
+  openBurgerMenu() {
+    this.mobileNav.nativeElement.classList.add('is-active');
+  }
+
+  closeBurgerMenu() {
+    this.mobileNav.nativeElement.classList.remove('is-active');
   }
 }

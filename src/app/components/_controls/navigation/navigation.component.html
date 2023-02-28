@@ -1,68 +1,92 @@
 <div class="container">
 
-  <div  [class.isIconOpen]="isOpen"
-        [class.isIconClosed]="!isOpen"
-        class="icon">
+  <div [class.isIconOpen]="isOpen"
+       [class.isIconClosed]="!isOpen"
+       class="icon">
     <app-icon colour="#1a77bc"
               width="58px"
               height="34px"></app-icon>
   </div>
 
 
-  <div  [class.isOpen]="isOpen"
-        [class.isClosed]="!isOpen"
-        class="logo">
-  <app-logo width="200px" height="145px"></app-logo>
+  <div [class.isOpen]="isOpen"
+       [class.isClosed]="!isOpen"
+       class="logo">
+    <app-logo width="200px" height="145px"></app-logo>
   </div>
 
   <ul [class.hide-text]="!isOpen">
-    <li *ngIf="user.status === 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active"
+    <li *ngIf="user.status === 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" (click)="fireClickEvent()"
                                             [routerLinkActiveOptions]={exact:true}><i
       class="fas fa-dashboard"></i>
       <ng-container *ngIf="isOpen"> Dashboard</ng-container>
     </a></li>
 
-    <li *ngIf="user.status !== 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active"
+    <li *ngIf="user.status !== 'active'"><a [class.center]="!isOpen" routerLink="/" routerLinkActive="active" (click)="fireClickEvent()"
                                             [routerLinkActiveOptions]={exact:true}><i
       class="fas fa-home"></i>
       <ng-container *ngIf="isOpen"> Home</ng-container>
     </a></li>
 
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/channels" routerLinkActive="active"><i
+      <a [class.center]="!isOpen" routerLink="/channels" (click)="fireClickEvent()" routerLinkActive="active"><i
         class="fas fa-list-check"></i>
         <ng-container *ngIf="isOpen"> Channels</ng-container>
       </a></li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/inventory" routerLinkActive="active"><i
+      <a [class.center]="!isOpen" routerLink="/inventory" (click)="fireClickEvent()" routerLinkActive="active"><i
         class="fas fa-boxes-stacked"></i>
         <ng-container *ngIf="isOpen"> Inventory</ng-container>
         <div class="badge" *ngIf="isOpen">1,674</div>
       </a></li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/orders" routerLinkActive="active"><i
+      <a [class.center]="!isOpen" routerLink="/orders" (click)="fireClickEvent()" routerLinkActive="active"><i
         class="fas fa-cart-shopping"></i>
         <ng-container *ngIf="isOpen"> Orders</ng-container>
       </a></li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/shipping" routerLinkActive="active"><i
+      <a [class.center]="!isOpen" routerLink="/shipping" (click)="fireClickEvent()" routerLinkActive="active"><i
         class="fas fa-truck-fast"></i>
         <ng-container *ngIf="isOpen"> Shipping</ng-container>
       </a></li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/templates" routerLinkActive="active"><i
+      <a [class.center]="!isOpen" routerLink="/templates" (click)="fireClickEvent()" routerLinkActive="active"><i
         class="fas fa-file-invoice"></i>
         <ng-container *ngIf="isOpen"> Templates</ng-container>
       </a></li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/fulfilment" routerLinkActive="active"><i
+      <a [class.center]="!isOpen" routerLink="/fulfilment" (click)="fireClickEvent()" routerLinkActive="active"><i
         class="fas fa-box-open"></i>
         <ng-container *ngIf="isOpen"> Fulfilment</ng-container>
       </a></li>
     <li *ngIf="user.status === 'active'">
-      <a [class.center]="!isOpen" routerLink="/messages" routerLinkActive="active"><i
+      <a [class.center]="!isOpen" routerLink="/messages" (click)="fireClickEvent()" routerLinkActive="active"><i
         class="fas fa-message"></i>
         <ng-container *ngIf="isOpen"> Messages</ng-container>
+      </a></li>
+  </ul>
+  <ul [class.hide-text]="!isOpen" class="hiddenOption">
+    <li>
+      <hr>
+    </li>
+    <li *ngIf="user.status !== 'active'">
+      <a routerLink="/login" (click)="fireClickEvent()" routerLinkActive="active"
+         [routerLinkActiveOptions]={exact:true}
+         (click)="fireClickEvent()"><i class="fas fa-lock"></i>
+        Login
+      </a>
+    </li>
+    <li *ngIf="user.status !== 'active'">
+      <a routerLink="/register" (click)="fireClickEvent()" routerLinkActive="active"><i class="fas fa-user"></i>
+        Register
+      </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a routerLink="/logout" (click)="fireClickEvent()" routerLinkActive="active"><i class="fas fa-unlock"></i>
+        Logout
+      </a></li>
+    <li *ngIf="user.status === 'active'">
+      <a routerLink="/settings" (click)="fireClickEvent()" routerLinkActive="active"><i class="fas fa-cog"></i>
+        Settings
       </a></li>
   </ul>
 </div>
