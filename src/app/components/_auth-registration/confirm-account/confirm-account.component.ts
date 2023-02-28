@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {UiService} from "../../../services/api/ui.service";
 
 @Component({
   selector: 'app-confirm-account',
@@ -8,15 +9,20 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ConfirmAccountComponent implements OnInit {
 
-  code: string = '';
-  device: string = 'sms'
-  deviceName: string = 'mobile phone';
   constructor(
+    private uiService: UiService,
     private route: ActivatedRoute
+
   ) {
   }
 
+  code: string = '';
+  device: string = 'sms'
+  deviceName: string = 'mobile phone';
+
   ngOnInit() {
+    this.uiService.setHeading('Confirm Account');
+
     if (this.route.snapshot.paramMap.get('code') !== null) {
       this.code = this.route.snapshot.paramMap.get('code') || '';
     }

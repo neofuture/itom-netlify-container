@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {UiService} from "../../../services/api/ui.service";
 
 @Component({
   selector: 'app-reset-password',
@@ -7,6 +8,13 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./reset-password.component.css']
 })
 export class ResetPasswordComponent implements OnInit {
+
+  constructor(
+    private uiService: UiService,
+    private route: ActivatedRoute
+  ) {
+  }
+
   code: string = ''
 
   payload = {
@@ -16,12 +24,11 @@ export class ResetPasswordComponent implements OnInit {
   };
   email!: string;
 
-  constructor(
-    private route: ActivatedRoute
-  ) { }
 
   ngOnInit(): void {
-
+    setTimeout(() => {
+      this.uiService.setHeading('Reset Password');
+    });
     if (this.route.snapshot.paramMap.get('code') !== null) {
       this.code = this.route.snapshot.paramMap.get('code') || '';
     }

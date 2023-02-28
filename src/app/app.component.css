@@ -2,31 +2,60 @@
   position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  display: block;
+}
+
+.app > div:first-child {
+  display: inline-block;
+  float: left;
+}
+
+.app > div:last-child {
+  display: inline-block;
+  float: right;
+}
+
+.navContainer--open > div:first-child {
+  width: 260px;
+  min-width: 260px;
+  transition: all 300ms;
+}
+
+.navContainer--open > div:last-child {
+  width: calc(100% - 260px);
+  transition: all 300ms;
+}
+
+.navContainer--closed > div:first-child {
+  width: 50px;
+  min-width: 50px;
+  transition: all 300ms;
+}
+
+.navContainer--closed > div:last-child {
+  width: calc(100% - 50px);
+  transition: all 300ms;
 }
 
 .navContainer {
-  padding: 8px;
   transition: all 300ms;
-  height:100%;
-  overflow:auto;
+  height: 100%;
 }
 
 .mobileNav {
-  position:absolute;
-  left:-100%;
+  position: absolute;
+  left: -100%;
+  height: 100%;
 }
 
 .burgerMenu {
   display: none;
   font-size: 24px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .mobileNav.is-active {
-  left:0;
+  left: 0;
 }
 
 .mobileNav__close {
@@ -34,28 +63,14 @@
   top: 0;
   right: 0;
   font-size: 24px;
-  cursor:pointer;
-  padding:12px;
+  cursor: pointer;
+  padding: 12px;
 }
 
 .container {
   position: relative;
   height: 100%;
   flex-grow: 3
-}
-
-.navContainer--open {
-  width: 260px;
-  min-width: 260px;
-  transition: all 300ms;
-  padding: 8px;
-}
-
-.navContainer--closed {
-  width: 50px;
-  min-width: 50px;
-  transition: all 300ms;
-  padding: 0;
 }
 
 .toggleSidebar {
@@ -70,12 +85,12 @@
   bottom: 5px;
   left: -45px;
   transition: all 300ms;
-  color:white;
-  border:8px solid white;
+  color: white;
+  border: 8px solid white;
 }
 
 .toggleSidebar i {
-  font-size:16px;
+  font-size: 16px;
 }
 
 .app-container {
@@ -86,10 +101,11 @@
   text-align: left;
 }
 
-.app-header{
+.app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 57px;
 }
 
 .app-body {
@@ -107,29 +123,50 @@ h1 {
 }
 
 .loading {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .icon {
-  position:relative;
-  top:6px;
-  display:none;
+  position: relative;
+  top: 4px;
+}
+
+.icon-container {
+  display: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
-  .icon {
-    display:inline-block;
+  .icon-container {
+    display: inline-block;
   }
-  .app {
-    display:block;
+
+  .navContainer--open > div:first-child {
+    width: 0;
+    min-width: 0;
   }
+
+  .navContainer--open > div:last-child {
+    width: 100%;
+  }
+
+  .navContainer--closed > div:first-child {
+    width: 0;
+    min-width: 0;
+  }
+
+  .navContainer--closed > div:last-child {
+    width: 100%;
+  }
+
   .navContainer {
-    display:none;
+    display: none;
   }
+
   .mobileNav {
     display: block;
     position: absolute;
@@ -142,12 +179,14 @@ h1 {
     padding: 8px;
     transition: all 300ms;
   }
+
   .burgerMenu {
     display: block;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .userStatus {
-    display:none;
+    display: none;
   }
 }

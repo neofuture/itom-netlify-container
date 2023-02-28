@@ -133,3 +133,13 @@ h3 {
   opacity:1;
   transition: all 500ms ease;
 }
+
+@media screen and (max-width: 768px) {
+  .form-container {
+    width: 100%;
+    padding: 20px;
+  }
+  .form-result {
+    width: calc(100% - 40px);
+  }
+}

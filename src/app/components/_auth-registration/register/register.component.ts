@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UiService} from "../../../services/api/ui.service";
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  constructor(
+    private uiService: UiService,
+  ) {
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.uiService.setHeading('Register');
+    });
+  }
   user = {
     first_name: '',
     last_name: '',
@@ -15,8 +26,4 @@ export class RegisterComponent implements OnInit {
     password: '',
     c_password: ''
   };
-
-  ngOnInit(): void {
-  }
-
 }

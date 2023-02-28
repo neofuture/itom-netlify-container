@@ -1,8 +1,8 @@
-<div class="app">
-  <div class="navContainer" [ngClass]="{
+<div class="app" [ngClass]="{
          'navContainer--open': isSidebarOpen,
          'navContainer--closed': !isSidebarOpen
        }">
+  <div class="navContainer">
     <app-navigation [isOpen]="isSidebarOpen"></app-navigation>
   </div>
   <div class="mobileNav" #mobileNav>
@@ -18,9 +18,10 @@
     </button>
     <div class="app-container">
       <div class="app-header">
-        <div>
-          <h1><app-icon [colour]="'#ffffff'" width="36px" class="icon"></app-icon> {{ heading }}</h1>
+        <div class="icon-container" routerLink="/">
+          <app-icon [colour]="'#ffffff'" width="36px" class="icon"></app-icon>
         </div>
+          <h2>{{ heading }}</h2>
         <div class="userStatus">
           <app-user-status></app-user-status>
         </div>
