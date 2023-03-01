@@ -6,6 +6,7 @@
   position: relative;
   z-index: 1;
   width: 500px;
+  border-top: 2px solid var(--nav-border);
 }
 
 .form-container:before {

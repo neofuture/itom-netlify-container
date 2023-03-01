@@ -8,11 +8,18 @@
               height="34px"></app-icon>
   </div>
 
+  <div [class.isOpen]="isOpen"
+       [class.isClosed]="!isOpen"
+       *ngIf="!isMobile"
+       class="logo">
+    <app-logo width="180px" height="120px"></app-logo>
+  </div>
 
   <div [class.isOpen]="isOpen"
        [class.isClosed]="!isOpen"
-       class="logo">
-    <app-logo width="200px" height="145px"></app-logo>
+       *ngIf="isMobile"
+       class="logo-small">
+    <app-logo width="100px" height="82px"></app-logo>
   </div>
 
   <ul [class.hide-text]="!isOpen">
@@ -83,7 +90,8 @@
         <ng-container *ngIf="isOpen"> Register</ng-container>
       </a></li>
     <li *ngIf="user.status !== 'active'">
-      <a routerLink="/forgotten-password" (click)="fireClickEvent()" routerLinkActive="active"><i class="fas fa-unlock"></i>
+      <a routerLink="/forgotten-password" (click)="fireClickEvent()" routerLinkActive="active"><i
+        class="fas fa-unlock"></i>
         <ng-container *ngIf="isOpen"> Forgotten Password</ng-container>
       </a></li>
     <li *ngIf="user.status === 'active'">

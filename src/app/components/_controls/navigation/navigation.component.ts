@@ -11,6 +11,7 @@ export class NavigationComponent implements OnInit {
   user: any = {status: 'unverified'};
   @Input() isOpen: boolean = true;
   @Output() clicked = new EventEmitter<boolean>();
+  @Input() isMobile: boolean = false;
   constructor(
     private userService: UserService,
   ) {

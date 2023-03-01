@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   display: block;
+  overflow: hidden;
 }
 
 .app > div:first-child {
@@ -44,8 +45,12 @@
 
 .mobileNav {
   position: absolute;
-  left: -100%;
-  height: 100%;
+  height: calc(100% - 6px);
+  right: -100%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 12px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin:4px 0 4px 4px;
 }
 
 .burgerMenu {
@@ -55,7 +60,8 @@
 }
 
 .mobileNav.is-active {
-  left: 0;
+  right: 0;
+  width: 260px;
 }
 
 .mobileNav__close {
@@ -64,7 +70,7 @@
   right: 0;
   font-size: 24px;
   cursor: pointer;
-  padding: 12px;
+  padding: 12px 18px;
 }
 
 .container {
@@ -106,6 +112,7 @@
   justify-content: space-between;
   align-items: center;
   height: 57px;
+  user-select: none;
 }
 
 .app-body {
@@ -116,6 +123,7 @@
   width: 100%;
   border-radius: 4px;
   height: calc(100% - 57px);
+  transition: all 300ms;
 }
 
 h1 {
@@ -140,7 +148,69 @@ h1 {
   cursor: pointer;
 }
 
+.footer {
+  position: fixed;
+  bottom: -65px;
+  left: 0;
+  width: calc(100% - 30px);
+  height: 65px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background: var(--black);
+  background: linear-gradient(180deg, var(--black) 0%, #000000 100%);
+  color: var(--blue-primary);
+  font-size: 18px;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  transition: all 300ms;
+  margin: 0 15px 0 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px 8px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border: 1px solid #000000;
+  border-bottom: none;
+}
+
+.footer a {
+  text-decoration: none;
+  border-top:4px solid transparent;
+  border-bottom:4px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  transition: all 300ms;
+  flex-direction: column;
+  gap:4px;
+  padding: 8px 12px 4px 12px
+}
+
+.footer a div {
+  font-size: 12px;
+}
+
+.footer a:hover {
+  border-top: 4px solid var(--blue-tertiary);
+
+  transition: all 300ms;
+}
+
+.footer a.active {
+  border-top: 4px solid var(--green-primary);
+  color: white;
+  transition: all 300ms;
+}
+
 @media screen and (max-width: 768px) {
+  .footer {
+    bottom: 0;
+    transition: all 300ms;
+  }
+
+  .container--inner {
+    transition: all 300ms;
+    height: calc(100% - 57px - 65px);
+  }
+
   .icon-container {
     display: inline-block;
   }
@@ -168,12 +238,12 @@ h1 {
   }
 
   .mobileNav {
+    user-select: none;
     display: block;
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
+    right: -260px;
+    width: 260px;
     background-color: var(--white);
     z-index: 100;
     padding: 8px;

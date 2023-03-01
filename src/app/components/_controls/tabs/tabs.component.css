@@ -25,6 +25,8 @@
   position: relative;
   justify-content: space-between;
   align-items: center;
+  height:32px;
+  color: var(--black);
 }
 
 .navigation li:not(:has(.badge)) {
@@ -41,7 +43,6 @@
 
 .navigation li:hover:not(.active) {
   background-color: var(--green-secondary);
-  color: white;
   transition: all 300ms;
 }
 
@@ -72,4 +73,13 @@ i {
 
 .navigation-container::-webkit-scrollbar {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+    display: none;
+  }
+  .navigation li:not(:has(.badge)) {
+    padding-right: 10px;
+  }
 }

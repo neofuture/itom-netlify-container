@@ -31,10 +31,14 @@ export class AppComponent implements OnInit {
   }
 
   openBurgerMenu() {
-    this.mobileNav.nativeElement.classList.add('is-active');
+    setTimeout(() => {
+      this.mobileNav.nativeElement.classList.add('is-active');
+    });
   }
 
   closeBurgerMenu() {
-    this.mobileNav.nativeElement.classList.remove('is-active');
+    if (this.mobileNav.nativeElement.classList.contains('is-active')) {
+      this.mobileNav.nativeElement.classList.remove('is-active');
+    }
   }
 }
