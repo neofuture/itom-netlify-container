@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'http://18.132.223.249/api'
+  api: 'https://devapi.itomconnect.com/api'
 };
 
 /*
