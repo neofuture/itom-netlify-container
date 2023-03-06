@@ -58,6 +58,8 @@ import { BrandsComponent } from './components/_ui-screens/inventory/brands/brand
 import { AttributesComponent } from './components/_ui-screens/inventory/attributes/attributes.component';
 import { VariantsComponent } from './components/_ui-screens/inventory/variants/variants.component';
 import { CollectionsComponent } from './components/_ui-screens/inventory/collections/collections.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -116,7 +118,13 @@ import { CollectionsComponent } from './components/_ui-screens/inventory/collect
     ButtonModule,
     NgOtpInputModule,
     SelectButtonModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {
