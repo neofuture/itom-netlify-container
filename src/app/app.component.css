@@ -50,7 +50,7 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 12px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  margin:4px 0 4px 4px;
+  margin: 4px 0 4px 4px;
 }
 
 .burgerMenu {
@@ -152,10 +152,8 @@ h1 {
   position: fixed;
   bottom: -65px;
   left: 0;
-  width: calc(100% - 30px);
+  width: 100%;
   height: 65px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
   background: var(--black);
   background: linear-gradient(180deg, var(--black) 0%, #000000 100%);
   color: var(--blue-primary);
@@ -164,7 +162,6 @@ h1 {
   align-items: center;
   display: flex;
   transition: all 300ms;
-  margin: 0 15px 0 15px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px 8px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border: 1px solid #000000;
   border-bottom: none;
@@ -172,16 +169,17 @@ h1 {
 
 .footer a {
   text-decoration: none;
-  border-top:4px solid transparent;
-  border-bottom:4px solid transparent;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--white);
   transition: all 300ms;
   flex-direction: column;
-  gap:4px;
-  padding: 8px 12px 4px 12px
+  gap: 4px;
+  padding: 8px 0 4px 0;
+  width: 60px;
 }
 
 .footer a div {
