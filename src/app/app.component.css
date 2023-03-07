@@ -150,10 +150,10 @@ h1 {
 
 .footer {
   position: fixed;
-  bottom: -65px;
+  bottom: -70px;
   left: 0;
   width: 100%;
-  height: 65px;
+  height: 75px;
   background: var(--black);
   background: linear-gradient(180deg, var(--black) 0%, #000000 100%);
   color: var(--blue-primary);
@@ -165,6 +165,7 @@ h1 {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px 8px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border: 1px solid #000000;
   border-bottom: none;
+  padding-bottom:26px;
 }
 
 .footer a {
@@ -206,7 +207,7 @@ h1 {
 
   .container--inner {
     transition: all 300ms;
-    height: calc(100% - 57px - 65px);
+    height: calc(100% - 57px - 75px);
   }
 
   .icon-container {
