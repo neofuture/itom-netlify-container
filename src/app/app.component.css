@@ -1,0 +1,261 @@
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.app > div:first-child {
+  display: inline-block;
+  float: left;
+}
+
+.app > div:last-child {
+  display: inline-block;
+  float: right;
+}
+
+.navContainer--open > div:first-child {
+  width: 260px;
+  min-width: 260px;
+  transition: all 300ms;
+}
+
+.navContainer--open > div:last-child {
+  width: calc(100% - 260px);
+  transition: all 300ms;
+}
+
+.navContainer--closed > div:first-child {
+  width: 50px;
+  min-width: 50px;
+  transition: all 300ms;
+}
+
+.navContainer--closed > div:last-child {
+  width: calc(100% - 50px);
+  transition: all 300ms;
+}
+
+.navContainer {
+  transition: all 300ms;
+  height: 100%;
+}
+
+.mobileNav {
+  position: absolute;
+  height: calc(100% - 6px);
+  right: -100%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 12px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 4px 0 4px 4px;
+}
+
+.burgerMenu {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobileNav.is-active {
+  right: 0;
+  width: 260px;
+}
+
+.mobileNav__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 12px 18px;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  flex-grow: 3
+}
+
+.toggleSidebar {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: var(--green-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 5px;
+  left: -45px;
+  transition: all 300ms;
+  color: white;
+  border: 8px solid white;
+}
+
+.toggleSidebar i {
+  font-size: 16px;
+}
+
+.app-container {
+  background: linear-gradient(180deg, var(--blue-primary) 0%, var(--green-gradient-start) 100%);
+  color: var(--white);
+  padding: 0 15px 15px 15px;
+  height: 100%;
+  text-align: left;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 57px;
+  user-select: none;
+}
+
+.app-body {
+  height: 100%;
+}
+
+.container--inner {
+  width: 100%;
+  border-radius: 4px;
+  height: calc(100% - 57px);
+  transition: all 300ms;
+}
+
+h1 {
+  white-space: nowrap;
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  position: relative;
+  top: 4px;
+}
+
+.icon-container {
+  display: none;
+  cursor: pointer;
+}
+
+.footer {
+  position: fixed;
+  bottom: -70px;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background: var(--black);
+  background: linear-gradient(180deg, var(--black) 0%, #000000 100%);
+  color: var(--blue-primary);
+  font-size: 18px;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  transition: all 300ms;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px 8px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border: 1px solid #000000;
+  border-bottom: none;
+  padding-bottom:26px;
+}
+
+.footer a {
+  text-decoration: none;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  transition: all 300ms;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0 4px 0;
+  width: 60px;
+}
+
+.footer a div {
+  font-size: 12px;
+}
+
+.footer a:hover {
+  border-top: 4px solid var(--blue-tertiary);
+
+  transition: all 300ms;
+}
+
+.footer a.active {
+  border-top: 4px solid var(--green-primary);
+  color: white;
+  transition: all 300ms;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    bottom: 0;
+    transition: all 300ms;
+  }
+
+  .container--inner {
+    transition: all 300ms;
+    height: calc(100% - 57px - 75px);
+  }
+
+  .icon-container {
+    display: inline-block;
+  }
+
+  .navContainer--open > div:first-child {
+    width: 0;
+    min-width: 0;
+  }
+
+  .navContainer--open > div:last-child {
+    width: 100%;
+  }
+
+  .navContainer--closed > div:first-child {
+    width: 0;
+    min-width: 0;
+  }
+
+  .navContainer--closed > div:last-child {
+    width: 100%;
+  }
+
+  .navContainer {
+    display: none;
+  }
+
+  .mobileNav {
+    user-select: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    background-color: var(--white);
+    z-index: 100;
+    padding: 8px;
+    transition: all 300ms;
+  }
+
+  .burgerMenu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .userStatus {
+    display: none;
+  }
+}

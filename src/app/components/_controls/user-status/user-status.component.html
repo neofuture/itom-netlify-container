@@ -1,0 +1,29 @@
+<ul>
+  <li *ngIf="user.status === 'active'">
+    <div class="user-image">
+      <img src="assets/images/profile.png" alt="Profile Image">
+    </div>
+    <div>
+      {{ user.first_name }} {{ user.last_name}}
+    </div>
+  </li>
+
+  <li *ngIf="user.status !== 'active'">
+    <a routerLink="/login" routerLinkActive="active"
+       [routerLinkActiveOptions]={exact:true}><i class="fas fa-lock"></i>
+      Login
+    </a>
+  </li>
+  <li *ngIf="user.status !== 'active'">
+    <a routerLink="/register" routerLinkActive="active"><i class="fas fa-user"></i>
+      Register
+    </a></li>
+  <li *ngIf="user.status === 'active'">
+    <a routerLink="/logout" routerLinkActive="active"><i class="fas fa-unlock"></i>
+      Logout
+    </a></li>
+  <li *ngIf="user.status === 'active'">
+    <a routerLink="/settings" routerLinkActive="active"><i class="fas fa-cog"></i>
+      Settings
+    </a></li>
+</ul>

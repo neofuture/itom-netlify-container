@@ -1,0 +1,8 @@
+<div class="container">
+  <app-confirm-account-form
+    heading="Verify Your Account"
+    body="Please enter the code that was sent to your {{ deviceName }}"
+    [otpLength]="6"
+    [otp]="code"
+    [device]="device"></app-confirm-account-form>
+</div>

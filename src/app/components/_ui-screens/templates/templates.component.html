@@ -1,0 +1,16 @@
+<div class="container">
+  <app-tabs *ngIf="enableTabs"
+            [tabs]="tabs"
+            [activeTab]="activeTab"
+            (activeTabChange)="setTab($event)"></app-tabs>
+  <div class="container-inner" [class.container-tabs]="enableTabs">
+    <div *ngIf="user.status == 'active'; else loading" >
+      Testing testing 123
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="loading">
+    <app-loading [colour]="'#2c69b1'"></app-loading>
+  </div>
+</ng-template>

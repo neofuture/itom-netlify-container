@@ -1,0 +1,44 @@
+<div class="register--container" *ngIf="user.status == 'unverified'">
+  <app-update-user-form
+    [payload]="user"
+    heading=", please complete your registration"
+    body="Before you can login you need to complete and confirm your registration details below. Please confirm the details are correct and click the Verify button."
+  >
+  </app-update-user-form>
+</div>
+
+<div class="container" *ngIf="user.status != 'active' && user && loaded">
+  <div class="login-form">
+    <app-login-form
+      heading="Login"
+      body="Please login to your account"
+      [payload]="user"></app-login-form>
+  </div>
+</div>
+
+<div class="container" *ngIf="user.status == 'active'">
+  <app-tabs *ngIf="enableTabs"
+            [tabs]="tabs"
+            [activeTab]="activeTab"
+            (activeTabChange)="setTab($event)"></app-tabs>
+  <div class="container-inner" [class.container-tabs]="enableTabs">
+
+    <div *ngIf="user.status == 'active'">
+      <div class="container--inner">
+        Testing testing 123
+        <div>IP {{ ip }}</div>
+      </div>
+    </div>
+
+    <div *ngIf="loaded && user.status != 'active'">
+      You are not logged in, please <a routerLink="/login">login</a> to continue
+      <div>IP {{ ip }}</div>
+    </div>
+    <div class="loading" *ngIf="!loaded">
+      <app-loading [colour]="'#2c69b1'"></app-loading>
+    </div>
+  </div>
+</div>
+
+
+

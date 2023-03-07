@@ -1,0 +1,12 @@
+<div class="navigation-container">
+  <ul class="navigation">
+    <li *ngFor="let tab of tabs; let i = index"
+        (click)="setTab(tab)"
+        [class.active]="activeTab === tab.slug">
+      <i class="fas {{tab.icon}}"></i> <span class="text">{{tab.name}}</span>
+      <div *ngIf="tab.badge > 0" class="badge">
+        {{ tab.badge }}
+      </div>
+    </li>
+  </ul>
+</div>
