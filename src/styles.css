@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 :root {
@@ -29,8 +29,47 @@ body {
   --green-gradient-end: #b5e181;
   --green-background: #f7fbf8;
   --white: #ffffff;
+  --force-white: #ffffff;
   --black: #444444;
   --grey: #dddddd;
+  /*--button-gradient: linear-gradient(*/
+  /*  336deg,*/
+  /*  rgba(0,0,255, 1),*/
+  /*  rgba(0,0,255, 0) 100%*/
+  /*),*/
+  /*linear-gradient(*/
+  /*  127deg,*/
+  /*  rgba(255, 0, 0, 1),*/
+  /*  rgba(255, 0, 0, 0) 100%*/
+  /*),*/
+  /*linear-gradient(*/
+  /*  127deg,*/
+  /*  rgba(255, 0, 255, 1),*/
+  /*  rgba(255, 0, 255, 0) 100%*/
+  /*);*/
+  /*--background-gradient: linear-gradient(*/
+  /*  217deg,*/
+  /*  rgb(85, 0, 255),*/
+  /*  rgba(0,0,255, 0) 100%*/
+  /*),*/
+  /*linear-gradient(*/
+  /*  127deg,*/
+  /*  rgba(255, 0, 0, 1),*/
+  /*  rgba(255, 0, 0, 0) 100%*/
+  /*),*/
+  /*linear-gradient(*/
+  /*  336deg,*/
+  /*  rgba(255, 0, 255, 1),*/
+  /*  rgba(255, 0, 255, 0) 100%*/
+  /*);*/
+  --button-gradient: var(--green-primary);
+  --background-gradient: linear-gradient(180deg, var(--blue-primary) 0%, var(--green-gradient-start) 100%);
+
+  /*--white: #222222;*/
+  /*--black: #a1a1a1;*/
+
+  --force-white: #dadada;
+  --force-black: #222222;
 }
 
 .ui {

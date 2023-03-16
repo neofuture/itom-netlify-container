@@ -8,6 +8,8 @@
   overflow: scroll;
   scrollbar-width: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+  background-color: var(--white);
+  color:var(--black);
 }
 
 .container::-webkit-scrollbar {
@@ -75,20 +77,20 @@ ul li {
 ul li a {
   text-decoration: none;
   padding: 8px;
-  color: var(--nav-colour);
+  color: var(--black);
   transition: all 100ms;
-  border-radius: 4px;
   margin: 0 2px 0 2px;
 }
 
 ul li a:hover {
   background-color: var(--blue-primary);
-  color: white;
+  color:  var(--force-white);
   transition: all 100ms;
 }
 
 ul li a.active {
-  background-color: var(--green-primary);
+  color: var(--force-black);
+  background: var(--button-gradient);
   transition: all 100ms;
 }
 

@@ -1,6 +1,5 @@
 .form-container {
   padding: 40px;
-  border-radius: 10px;
   background-color: var(--green-background);
   color: var(--black);
   position: relative;
@@ -11,7 +10,6 @@
 
 .form-container:before {
   content: '';
-  border-radius: 10px;
   background-color: var(--white);
   opacity: 0.3;
   width: calc(100% - 26px);
@@ -24,7 +22,6 @@
 
 .form-container:after {
   content: '';
-  border-radius: 10px;
   background-color: var(--white);
   opacity: 0.2;
   width: calc(100% - 52px);
@@ -133,7 +130,6 @@ h3 {
   position: absolute;
   display:block;
   padding:10px 10px 10px 10px;
-  border-radius:12px;
   color:white;
   width:calc(100% - 80px);
   text-align: center;
